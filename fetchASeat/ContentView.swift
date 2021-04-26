@@ -11,6 +11,27 @@
 
 import SwiftUI
 
+struct Welcome: Codable {
+    let events: [Event]
+}
+
+struct Event: Codable {
+    let id: Int
+    let datetime_local: String
+    let shortTitle: String
+    let eventDescription: String
+    let venue: Venue
+    let performers: [Performer]
+}
+
+struct Venue: Codable {
+    let displayLocation: String
+}
+
+struct Performer: Codable {
+    let image: String
+    }
+
 struct ContentView: View {
     @State private var isEditing = false
     @State private var text = ""
