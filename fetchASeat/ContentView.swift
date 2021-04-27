@@ -41,10 +41,14 @@ struct ContentView: View {
     @State private var notFoundAlert = false
     var body: some View {
         VStack {
+            Text("Fetch A Seat")
+                .font(.largeTitle)
+
             HStack {
                 Button("do it") {
                     loadData()
                 }
+
                 TextField("Search events", text: $searchText)
                     //                    .onChange(of: searchText) { newValue in
                     //
@@ -94,17 +98,21 @@ struct ContentView: View {
                     .animation(.default)
                 }
             }
+
             NavigationView {
+
                 List(events, id: \.id) { event in
                     NavigationLink(destination: DetailView(event: event)) {
                         VStack {
                             Text(event.short_title)
-                            Image(systemName: "person.fill")
+                                .font(.headline)
+                            Image(systemName: "questionmark")
                                 .data(url: URL(string: "\(event.performers[0].image)")!)
                         }
                     }
                 }
-                .navigationTitle("fetchASeat")
+                .navigationTitle("")
+                .navigationBarHidden(true)
             }
         }
     }
@@ -137,7 +145,8 @@ struct DetailView: View {
     var event: Event
     var body: some View {
         VStack {
-            Image(systemName: "heart")
+            Image(systemName: "questionmark")
+                .data(url: URL(string: "\(event.performers[0].image)")!)
             Text(event.description)
         }
     }
