@@ -46,10 +46,10 @@ struct ContentView: View {
                     loadData()
                 }
                 TextField("Search events", text: $searchText)
-//                    .onChange(of: searchText) { newValue in
-//
-//                                }
-                
+                    //                    .onChange(of: searchText) { newValue in
+                    //
+                    //                                }
+                    
                     .alert(isPresented: $notFoundAlert) {
                         Alert(title: Text("We couldn't find that 🥺"), message: Text("Please try again"), dismissButton: .default(Text("Okay")))
                     }
@@ -99,7 +99,8 @@ struct ContentView: View {
                     NavigationLink(destination: DetailView(event: event)) {
                         VStack {
                             Text(event.short_title)
-                            Image(systemName: "arrow")
+                            Image(systemName: "person.fill")
+                                .data(url: URL(string: "\(event.performers[0].image)")!)
                         }
                     }
                 }
@@ -107,10 +108,11 @@ struct ContentView: View {
             }
         }
     }
+    
     func loadData() {
         guard let url = URL(string: "https://api.seatgeek.com/2/events?q=\(searchText)&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2") else {
             print("Invalid URL")
-
+            
             return
         }
         print(url)
@@ -138,6 +140,17 @@ struct DetailView: View {
             Image(systemName: "heart")
             Text(event.description)
         }
+    }
+}
+
+extension Image {
+    func data(url:URL) -> Self {
+        if let data = try? Data(contentsOf: url) {
+            return Image(uiImage: UIImage(data: data)!)
+                .resizable()
+        }
+        return self
+            .resizable()
     }
 }
 
