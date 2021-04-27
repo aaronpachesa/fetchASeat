@@ -16,7 +16,7 @@ struct Welcome: Codable {
     let events: [Event]
 }
 
-struct Event: Codable {
+struct Event: Codable, Identifiable {
     let id: Int
     let datetime_local: String
     let shortTitle: String
@@ -82,21 +82,40 @@ struct ContentView: View {
                 }
             }
             NavigationView {
-                        List(landmarks) { landmark in
-                            NavigationLink(destination: LandmarkDetail()) {
-                                LandmarkRow(landmark: landmark)
-                            }
-                        }
-                        .navigationTitle("fetchASeat")
+                List(landmarks) { landmark in
+                    NavigationLink(destination: LandmarkDetail()) {
+                        LandmarkRow(landmark: landmark)
                     }
+                }
+                .navigationTitle("fetchASeat")
+            }
         }
+    }
+    func loadData() {
+        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(name.lowercased())") else {
+            print("Invalid URL")
+            return
         }
-       
+        let request = URLRequest(url: url)
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                if let decodedResponse = try? JSONDecoder().decode(Pokemon.self, from: data) {
+                    DispatchQueue.main.async {
+                        self.pokemonInfo = decodedResponse.base_experience
+                    }
+                    showPurchaseAlert.toggle()
+                    return
+                }
+            }
+            pokeNotFoundAlert.toggle()
+            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
+        }.resume()
+    }
 }
 
 struct LandmarkDetail: View {
     var landmark: Landmark
-
+    
     var body: some View {
         VStack {
             Image(systemName: "heart")
