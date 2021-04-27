@@ -21,7 +21,6 @@ struct Event: Codable, Identifiable {
     let id: Int
     let datetime_local: String
     let short_title: String
-    let description: String
     let venue: Venue
     let performers: [Performer]
 }
@@ -32,6 +31,11 @@ struct Venue: Codable {
 
 struct Performer: Codable {
     let image: String
+    let images: Huge
+}
+
+struct Huge: Codable {
+    let huge: String
 }
 
 struct ContentView: View {
@@ -104,10 +108,13 @@ struct ContentView: View {
                 List(events, id: \.id) { event in
                     NavigationLink(destination: DetailView(event: event)) {
                         VStack {
-                            Text(event.short_title)
-                                .font(.headline)
+                            
                             Image(systemName: "questionmark")
                                 .data(url: URL(string: "\(event.performers[0].image)")!)
+                            Text(event.short_title)
+                                .font(.headline)
+                            Spacer()
+                            Spacer()
                         }
                     }
                 }
@@ -146,8 +153,13 @@ struct DetailView: View {
     var body: some View {
         VStack {
             Image(systemName: "questionmark")
-                .data(url: URL(string: "\(event.performers[0].image)")!)
-            Text(event.description)
+                .data(url: URL(string: "\(event.performers[0].images.huge)")!)
+                .aspectRatio(contentMode: .fit)
+            Text(event.venue.display_location)
+                .padding(.top, 5)
+            Text(event.datetime_local)
+            Spacer()
+            
         }
     }
 }
