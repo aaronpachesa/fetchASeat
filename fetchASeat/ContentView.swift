@@ -36,10 +36,15 @@ struct Performer: Codable {
 struct ContentView: View {
     @State private var isEditing = false
     @State private var text = ""
+    @State private var theEvents = [Event]()
+    @State private var notFoundAlert = false
     var body: some View {
         VStack {
             HStack {
                 TextField("Search events", text: $text)
+                    .alert(isPresented: $notFoundAlert) {
+                        Alert(title: Text("We couldn't find that 🥺"), message: Text("Please try again"), dismissButton: .default(Text("Okay")))
+                    }
                     .frame(width: 200)
                     .padding(7)
                     .padding(.horizontal, 25)
@@ -82,9 +87,8 @@ struct ContentView: View {
                 }
             }
             NavigationView {
-                List(landmarks) { landmark in
-                    NavigationLink(destination: LandmarkDetail()) {
-                        LandmarkRow(landmark: landmark)
+                List(theEvents, id: \.id) { event in
+                    NavigationLink(destination: DetailView(event: event)) {
                     }
                 }
                 .navigationTitle("fetchASeat")
@@ -92,34 +96,32 @@ struct ContentView: View {
         }
     }
     func loadData() {
-        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(name.lowercased())") else {
+        guard let url = URL(string: "https://api.seatgeek.com/2/events?q=\(text)&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2") else {
             print("Invalid URL")
             return
         }
         let request = URLRequest(url: url)
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-                if let decodedResponse = try? JSONDecoder().decode(Pokemon.self, from: data) {
+                if let decodedResponse = try? JSONDecoder().decode(Welcome.self, from: data) {
                     DispatchQueue.main.async {
-                        self.pokemonInfo = decodedResponse.base_experience
+                        self.theEvents = decodedResponse.events
                     }
-                    showPurchaseAlert.toggle()
                     return
                 }
             }
-            pokeNotFoundAlert.toggle()
+            notFoundAlert.toggle()
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
         }.resume()
     }
 }
 
-struct LandmarkDetail: View {
-    var landmark: Landmark
-    
+struct DetailView: View {
+    var event: Event
     var body: some View {
         VStack {
             Image(systemName: "heart")
-            Text("Test")
+            Text(event.eventDescription)
         }
     }
 }
