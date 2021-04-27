@@ -9,6 +9,7 @@
 //Client ID:    client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2
 // Your app secret is "9614158889724b1d683b95cd91d776ca4af61453cd1d89d0a02959e42db0645b" - copy now as it can't be retrieved later.
 //https://api.seatgeek.com/2/events?q=boston+celtics&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2
+//Football
 
 import SwiftUI
 
@@ -19,14 +20,14 @@ struct Welcome: Codable {
 struct Event: Codable, Identifiable {
     let id: Int
     let datetime_local: String
-    let shortTitle: String
-    let eventDescription: String
+    let short_title: String
+    let description: String
     let venue: Venue
     let performers: [Performer]
 }
 
 struct Venue: Codable {
-    let displayLocation: String
+    let display_location: String
 }
 
 struct Performer: Codable {
@@ -35,13 +36,20 @@ struct Performer: Codable {
 
 struct ContentView: View {
     @State private var isEditing = false
-    @State private var text = ""
-    @State private var theEvents = [Event]()
+    @State private var searchText = ""
+    @State var events = [Event]()
     @State private var notFoundAlert = false
     var body: some View {
         VStack {
             HStack {
-                TextField("Search events", text: $text)
+                Button("do it") {
+                    loadData()
+                }
+                TextField("Search events", text: $searchText)
+//                    .onChange(of: searchText) { newValue in
+//
+//                                }
+                
                     .alert(isPresented: $notFoundAlert) {
                         Alert(title: Text("We couldn't find that 🥺"), message: Text("Please try again"), dismissButton: .default(Text("Okay")))
                     }
@@ -60,7 +68,7 @@ struct ContentView: View {
                             
                             if isEditing {
                                 Button(action: {
-                                    self.text = ""
+                                    self.searchText = ""
                                 }) {
                                     Image(systemName: "multiply.circle.fill")
                                         .foregroundColor(.gray)
@@ -76,7 +84,7 @@ struct ContentView: View {
                 if isEditing {
                     Button(action: {
                         self.isEditing = false
-                        self.text = ""
+                        self.searchText = ""
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }) {
                         Text("Cancel")
@@ -87,8 +95,12 @@ struct ContentView: View {
                 }
             }
             NavigationView {
-                List(theEvents, id: \.id) { event in
+                List(events, id: \.id) { event in
                     NavigationLink(destination: DetailView(event: event)) {
+                        VStack {
+                            Text(event.short_title)
+                            Image(systemName: "arrow")
+                        }
                     }
                 }
                 .navigationTitle("fetchASeat")
@@ -96,21 +108,24 @@ struct ContentView: View {
         }
     }
     func loadData() {
-        guard let url = URL(string: "https://api.seatgeek.com/2/events?q=\(text)&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2") else {
+        guard let url = URL(string: "https://api.seatgeek.com/2/events?q=\(searchText)&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2") else {
             print("Invalid URL")
+
             return
         }
+        print(url)
         let request = URLRequest(url: url)
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
+                print("b")
                 if let decodedResponse = try? JSONDecoder().decode(Welcome.self, from: data) {
+                    print("c")
                     DispatchQueue.main.async {
-                        self.theEvents = decodedResponse.events
+                        self.events = decodedResponse.events
                     }
                     return
                 }
             }
-            notFoundAlert.toggle()
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
         }.resume()
     }
@@ -121,7 +136,7 @@ struct DetailView: View {
     var body: some View {
         VStack {
             Image(systemName: "heart")
-            Text(event.eventDescription)
+            Text(event.description)
         }
     }
 }
