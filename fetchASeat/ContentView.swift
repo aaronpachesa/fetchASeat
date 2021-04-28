@@ -133,7 +133,7 @@ struct ContentView: View {
                                     Image(systemName: "heart.fill")
                                         .offset(x: 150, y: -100)
                                                                             .font(.system(size: 40))
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(.red)
                                 } else {
                                     Image(systemName: "heart")
                                         .offset(x: 150, y: -100)

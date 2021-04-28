@@ -14,7 +14,20 @@ class fetchASeatUITests: XCTestCase {
         guard let pathString = Bundle(for: type(of: self)).path(forResource: "UnitTestData", ofType: "json") else {
             fatalError("UnitTestData.json not found")
         }
+        guard let jsonString = try? String(contentsOfFile: pathString, encoding: .utf8) else {
+            fatalError("Unable to convert UnitTestData.json to String")
+        }
+        print("The JSON string is: \(jsonString)")
 
+        guard let jsonData = jsonString.data(using: .utf8) else {
+            fatalError("Unable to convert UnitTestData.json to Data")
+        }
+        
+        guard let jsonDictionary = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String:Any] else {
+            fatalError("Unable to convert UnitTestData.json to JSON dictionary")
+        }
+        
+        print("The JSON dictionary is: \(jsonDictionary)")
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
