@@ -41,6 +41,7 @@ struct Huge: Codable {
 //var saveArray = [Int]()
 let userDefaults = UserDefaults.standard
 var saveArray: [Int] = userDefaults.object(forKey: "saveArray") as? [Int] ?? []
+//@AppStorage("easterEggCount") var username: String = "easterEggCount"
 
 struct ContentView: View {
     @State private var isEditing = false
@@ -48,31 +49,34 @@ struct ContentView: View {
     @State var events = [Event]()
     @State private var notFoundAlert = false
     @Environment(\.presentationMode) var presentationMode
-
+    
     
     var body: some View {
         VStack {
-//            Text("\(saveArray[0])")
+            //            Text("\(saveArray[0])")
             Text("Fetch-a-🪑")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                        print(saveArray)
-                    }
-
+                    print(saveArray)
+                }
+            
             HStack {
                 Button("do it") {
                     loadData()
                 }
-
+                
                 TextField("Search events", text: $searchText)
-                    //                    .onChange(of: searchText) { newValue in
-                    //
-                    //                                }
+                                        .onChange(of: searchText) { newValue in
+                                            
+                                                loadData()
+                                            
+                                                    }
                     
                     .alert(isPresented: $notFoundAlert) {
                         Alert(title: Text("We couldn't find that 🥺"), message: Text("Please try again"), dismissButton: .default(Text("Okay")))
                     }
+                    
                     .frame(width: 200)
                     .padding(7)
                     .padding(.horizontal, 25)
@@ -114,27 +118,36 @@ struct ContentView: View {
                     .animation(.default)
                 }
             }
-
+            
             NavigationView {
-
+                
                 List(events, id: \.id) { event in
                     NavigationLink(destination: DetailView(event: event)) {
                         VStack {
-                            
-                            Image(systemName: "questionmark")
-                                .data(url: URL(string: "\(event.performers[0].image)")!)
-                                .aspectRatio(contentMode: .fit)
+                            ZStack {
+                                Image(systemName: "questionmark")
+                                    .data(url: URL(string: "\(event.performers[0].image)")!)
+                                    .aspectRatio(contentMode: .fit)
 
+                                
+                                saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
+
+                            }
+                            
+                            
                             Text(event.short_title)
                                 .font(.headline)
                             Spacer()
                             Spacer()
                         }
                     }
+
                 }
                 .navigationTitle("")
                 .navigationBarHidden(true)
+
             }
+            
             
         }
     }
@@ -165,29 +178,26 @@ struct ContentView: View {
 
 struct DetailView: View {
     @Environment(\.presentationMode) var presentationMode
-
+    @AppStorage("easterEggCount") var easterEggCount: Int = 0
+    @State private var firstEasterEggAlert = false
+    @State private var secondEasterEggAlert = false
+    @State private var thirdEasterEggAlert = false
     @State private var saveFill = false
     var event: Event
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
-                
-
                 Image(systemName: "questionmark")
                     .data(url: URL(string: "\(event.performers[0].images.huge)")!)
                     .aspectRatio(contentMode: .fit)
-                
-                
-                
+                    .alert(isPresented: $firstEasterEggAlert) {
+                        Alert(title: Text("Nothing to see here"), dismissButton: .default(Text("Okay")))
+                    }
                 Button(action: {
-                    
-                    
                     if saveArray.contains(event.id) {
                         print("Save button was tapped")
                         saveArray.removeAll(where: { $0 == event.id })
                         userDefaults.set(saveArray, forKey: "saveArray")
-                        
-
                         print(saveArray)
                         presentationMode.wrappedValue.dismiss()
                     } else {
@@ -196,49 +206,40 @@ struct DetailView: View {
                         userDefaults.set(saveArray, forKey: "saveArray")
                         print(saveArray)
                         presentationMode.wrappedValue.dismiss()
-
+                        
                     }
-                    
                 }) {
-                    
-                        saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
-//                        saveFill ? Image(systemName: "heart") : Image(systemName: "heart.fill")
-                    
-                    
-//                    if !saveArray.contains(event.id) && saveFill {
-//                        Image(systemName: "heart.fill")
-//                                .font(.system(size: 40))
-//                    } else {
-//                        Image(systemName: "heart")
-//                                .font(.system(size: 40))
-//
-//                    }
-                    
+                    saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
                 }
                 .offset(x: 150, y: 20)
-                                                .font(.system(size: 40))
-                
-                
-
-                
+                .font(.system(size: 40))
+                .alert(isPresented: $secondEasterEggAlert) {
+                    Alert(title: Text("Please don't tap this button again"), dismissButton: .default(Text("Okay")))
+                }
             }
             Text(event.venue.display_location)
                 .padding(.top, 5)
+                .alert(isPresented: $thirdEasterEggAlert) {
+                    Alert(title: Text("Your found my easter egg! -Aaron Pachesa"), message: Text("🥚"), dismissButton: .default(Text("Okay")))
+                }
             Text(event.datetime_local)
             Spacer()
-            if saveArray.contains(event.id) {
-                Button {
-                    presentationMode.wrappedValue.dismiss()
-                        } label: {
-                            Image(systemName: "pencil")
-                        }
-            } else {
-                Button {
-                    presentationMode.wrappedValue.dismiss()
-                        } label: {
-                            Image(systemName: "pencil.slash")
-                        }
+            Button {
+                if easterEggCount == 0 {
+                    firstEasterEggAlert.toggle()
+                } else if easterEggCount == 1 {
+                    secondEasterEggAlert.toggle()
+                } else if easterEggCount == 2 {
+                    thirdEasterEggAlert.toggle()
+                    easterEggCount = -1
+                }
+                easterEggCount += 1
+                presentationMode.wrappedValue.dismiss()
+
+            } label: {
+                Image(systemName: "key")
             }
+            
         }
     }
 }
