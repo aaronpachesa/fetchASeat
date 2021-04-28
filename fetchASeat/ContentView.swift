@@ -38,15 +38,20 @@ struct Huge: Codable {
     let huge: String
 }
 
+var saveArray = [Int]()
+let userDefaults = UserDefaults.standard
+
 struct ContentView: View {
     @State private var isEditing = false
     @State private var searchText = ""
     @State var events = [Event]()
     @State private var notFoundAlert = false
+    
     var body: some View {
         VStack {
-            Text("Fetch A Seat")
+            Text("Fetch-a-🪑")
                 .font(.largeTitle)
+                .fontWeight(.heavy)
 
             HStack {
                 Button("do it") {
@@ -152,9 +157,33 @@ struct DetailView: View {
     var event: Event
     var body: some View {
         VStack {
-            Image(systemName: "questionmark")
-                .data(url: URL(string: "\(event.performers[0].images.huge)")!)
-                .aspectRatio(contentMode: .fit)
+            ZStack(alignment: .top) {
+                
+
+                Image(systemName: "questionmark")
+                    .data(url: URL(string: "\(event.performers[0].images.huge)")!)
+                    .aspectRatio(contentMode: .fit)
+                
+                
+                Button(action: {
+                    print("Save button was tapped")
+                    saveArray.append(event.id)
+                    userDefaults.set(saveArray, forKey: "saveArray")
+                    print(saveArray)
+                    
+                }) {
+                    if event.id == 5101013 {
+                        Image(systemName: "heart.fill")
+                            .font(.system(size: 40))
+                    } else {
+                        Image(systemName: "heart")
+                            .font(.system(size: 40))
+                    }
+                    
+                }
+                .offset(x: 150, y: 20)
+                
+            }
             Text(event.venue.display_location)
                 .padding(.top, 5)
             Text(event.datetime_local)
