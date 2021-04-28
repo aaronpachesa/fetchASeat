@@ -1,6 +1,6 @@
 # fetchASeat
 
-This app has it all!
+Welcome to the Fetch-a-Seat experience!
 
 1.) Unit tests
 2.) Local Persistence of favorites
