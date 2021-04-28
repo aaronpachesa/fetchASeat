@@ -116,6 +116,8 @@ struct ContentView: View {
                             
                             Image(systemName: "questionmark")
                                 .data(url: URL(string: "\(event.performers[0].image)")!)
+                                .aspectRatio(contentMode: .fit)
+
                             Text(event.short_title)
                                 .font(.headline)
                             Spacer()
@@ -154,6 +156,7 @@ struct ContentView: View {
 }
 
 struct DetailView: View {
+    @State private var saveFill = false
     var event: Event
     var body: some View {
         VStack {
@@ -170,22 +173,33 @@ struct DetailView: View {
                     
                     if saveArray.contains(event.id) {
                         print("Save button was tapped")
-                        
+                        saveArray.removeAll(where: { $0 == event.id })
+                        print(saveArray)
+                        saveFill.toggle()
                     } else {
                         print("Save button was tapped")
                         saveArray.append(event.id)
                         userDefaults.set(saveArray, forKey: "saveArray")
                         print(saveArray)
+                        saveFill.toggle()
+
                     }
                     
                 }) {
-                    if saveArray.contains(event.id) {
+                    if !saveArray.contains(event.id) {
                         Image(systemName: "heart.fill")
-                            .font(.system(size: 40))
+                                .font(.system(size: 40))
                     } else {
                         Image(systemName: "heart")
-                            .font(.system(size: 40))
+                                .font(.system(size: 40))
+
                     }
+                    
+                    
+//                    else {
+//                        Image(systemName: "heart")
+//                            .font(.system(size: 40))
+//                    }
                     
                 }
                 .offset(x: 150, y: 20)
