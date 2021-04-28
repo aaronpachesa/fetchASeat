@@ -166,13 +166,20 @@ struct DetailView: View {
                 
                 
                 Button(action: {
-                    print("Save button was tapped")
-                    saveArray.append(event.id)
-                    userDefaults.set(saveArray, forKey: "saveArray")
-                    print(saveArray)
+                    
+                    
+                    if saveArray.contains(event.id) {
+                        print("Save button was tapped")
+                        
+                    } else {
+                        print("Save button was tapped")
+                        saveArray.append(event.id)
+                        userDefaults.set(saveArray, forKey: "saveArray")
+                        print(saveArray)
+                    }
                     
                 }) {
-                    if event.id == 5101013 {
+                    if saveArray.contains(event.id) {
                         Image(systemName: "heart.fill")
                             .font(.system(size: 40))
                     } else {
