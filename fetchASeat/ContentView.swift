@@ -129,8 +129,21 @@ struct ContentView: View {
                                     .data(url: URL(string: "\(event.performers[0].image)")!)
                                     .aspectRatio(contentMode: .fit)
 
-                                
-                                saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
+                                if saveArray.contains(event.id) {
+                                    Image(systemName: "heart.fill")
+                                        .offset(x: 150, y: -100)
+                                                                            .font(.system(size: 40))
+                                        .foregroundColor(.blue)
+                                } else {
+                                    Image(systemName: "heart")
+                                        .offset(x: 150, y: -100)
+                                                                            .font(.system(size: 40))
+                                        .foregroundColor(.blue)
+                                    
+                                }
+//                                saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
+//                                    .offset(x: 150, y: 20)
+//                                    .font(.system(size: 40))
 
                             }
                             
@@ -142,6 +155,10 @@ struct ContentView: View {
                         }
                     }
 
+                }
+                .onAppear() {
+                    print("yess?")
+                    loadData()
                 }
                 .navigationTitle("")
                 .navigationBarHidden(true)
