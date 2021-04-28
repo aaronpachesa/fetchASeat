@@ -1,0 +1,1547 @@
+//
+//  UnitTestData.json
+//  fetchASeatUITests
+//
+//  Created by Aaron Pachesa on 4/28/21.
+//
+
+import Foundation
+
+{
+    "events": [
+        {
+            "type": "family",
+            "id": 5384701,
+            "datetime_utc": "2021-04-28T23:00:00",
+            "venue": {
+                "state": "KY",
+                "name_v2": "Rupp Arena",
+                "postal_code": "40507",
+                "name": "Rupp Arena",
+                "links": [],
+                "timezone": "America/New_York",
+                "url": "https://seatgeek.com/venues/rupp-arena/tickets",
+                "score": 0.7574,
+                "location": {
+                    "lat": 38.0495,
+                    "lon": -84.5024
+                },
+                "address": "430 W Vine St",
+                "country": "US",
+                "has_upcoming_events": true,
+                "num_upcoming_events": 20,
+                "city": "Lexington",
+                "slug": "rupp-arena",
+                "extended_address": "Lexington, KY 40507",
+                "id": 209,
+                "popularity": 0,
+                "access_method": {
+                    "method": "QRCODE_TM",
+                    "created_at": "2019-02-11T22:22:54Z",
+                    "employee_only": false
+                },
+                "metro_code": 541,
+                "capacity": 23500,
+                "display_location": "Lexington, KY"
+            },
+            "datetime_tbd": false,
+            "performers": [
+                {
+                    "type": "theater_family",
+                    "name": "Disney On Ice Dream Big",
+                    "image": "https://seatgeek.com/images/performers-landscape/disney-on-ice-dream-big-0da3cb/576406/huge.jpg",
+                    "id": 576406,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/disney-on-ice-dream-big-0da3cb/576406/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "primary": true,
+                    "stats": {
+                        "event_count": 9
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 3000000,
+                            "name": "theater",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 8
+                        },
+                        {
+                            "id": 3050000,
+                            "name": "family",
+                            "parent_id": 3000000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "https://www.flickr.com/photos/miguel_discart/15946068904/in/photolist-qi6LJu-qXxNro-qXwFi5-7E9tgy-8sMNU9-4BFKnb-88PH2W-4BBBde-5wSCEn-5wS9Na-8sJCSi-8sMy7E-8sMvch-qi5pt5-88LtzT-88Lusi-reY2jz-6pypTD-88PGiY-6pypBR-ndRTYm-bqSLmp-6pCXbS-VfP2Fo-ekbwjE-k544Rj-dcQABS-6pyiwZ-6pCy21-ofbZM5-6pCvB7-6pyPbg-qXDN3V-8sMEwJ-8sN3h1-88LtGM-89c1PX-qi6K33-8sJNQ4-8sMMZo-oddb3j-8sJZZt-8sJDGH-88PHU5-rf1Vff-4BFLtG-qXDLUx-88PHQo-ax4Jqo-oUTeBD",
+                    "url": "https://seatgeek.com/disney-on-ice-dream-big-tickets",
+                    "score": 0.43,
+                    "slug": "disney-on-ice-dream-big",
+                    "home_venue_id": null,
+                    "short_name": "Disney On Ice Dream Big",
+                    "num_upcoming_events": 9,
+                    "colors": null,
+                    "image_license": "https://creativecommons.org/licenses/by-sa/2.0/",
+                    "popularity": 0,
+                    "location": null
+                }
+            ],
+            "is_open": false,
+            "links": [],
+            "datetime_local": "2021-04-28T19:00:00",
+            "time_tbd": false,
+            "short_title": "Disney On Ice Dream Big - Lexington",
+            "visible_until_utc": "2021-04-29T03:00:00",
+            "stats": {
+                "listing_count": 403,
+                "average_price": 70,
+                "lowest_price_good_deals": 54,
+                "lowest_price": 54,
+                "highest_price": 145,
+                "visible_listing_count": 203,
+                "dq_bucket_counts": [
+                    89,
+                    118,
+                    87,
+                    65,
+                    42,
+                    69,
+                    58,
+                    0
+                ],
+                "median_price": 66,
+                "lowest_sg_base_price": 37,
+                "lowest_sg_base_price_good_deals": 37
+            },
+            "taxonomies": [
+                {
+                    "id": 3000000,
+                    "name": "theater",
+                    "parent_id": null,
+                    "rank": 8
+                },
+                {
+                    "id": 3050000,
+                    "name": "family",
+                    "parent_id": 3000000,
+                    "rank": 0
+                }
+            ],
+            "url": "https://seatgeek.com/disney-on-ice-dream-big-lexington-tickets/family/2021-04-28-7-pm/5384701",
+            "score": 0.373,
+            "announce_date": "2021-04-10T00:00:00",
+            "created_at": "2021-04-10T16:06:44",
+            "date_tbd": false,
+            "title": "Disney On Ice Dream Big - Lexington",
+            "popularity": 0.523,
+            "description": "",
+            "status": "normal",
+            "access_method": {
+                "method": "QRCODE_TM",
+                "created_at": "2019-02-11T22:22:54Z",
+                "employee_only": false
+            },
+            "event_promotion": null,
+            "announcements": {},
+            "conditional": false,
+            "enddatetime_utc": null,
+            "themes": [],
+            "domain_information": []
+        },
+        {
+            "type": "family",
+            "id": 5381299,
+            "datetime_utc": "2021-04-29T23:00:00",
+            "venue": {
+                "state": "KY",
+                "name_v2": "Rupp Arena",
+                "postal_code": "40507",
+                "name": "Rupp Arena",
+                "links": [],
+                "timezone": "America/New_York",
+                "url": "https://seatgeek.com/venues/rupp-arena/tickets",
+                "score": 0.7574,
+                "location": {
+                    "lat": 38.0495,
+                    "lon": -84.5024
+                },
+                "address": "430 W Vine St",
+                "country": "US",
+                "has_upcoming_events": true,
+                "num_upcoming_events": 20,
+                "city": "Lexington",
+                "slug": "rupp-arena",
+                "extended_address": "Lexington, KY 40507",
+                "id": 209,
+                "popularity": 0,
+                "access_method": {
+                    "method": "QRCODE_TM",
+                    "created_at": "2019-02-11T22:22:54Z",
+                    "employee_only": false
+                },
+                "metro_code": 541,
+                "capacity": 23500,
+                "display_location": "Lexington, KY"
+            },
+            "datetime_tbd": false,
+            "performers": [
+                {
+                    "type": "theater_family",
+                    "name": "Disney On Ice Dream Big",
+                    "image": "https://seatgeek.com/images/performers-landscape/disney-on-ice-dream-big-0da3cb/576406/huge.jpg",
+                    "id": 576406,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/disney-on-ice-dream-big-0da3cb/576406/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "primary": true,
+                    "stats": {
+                        "event_count": 9
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 3000000,
+                            "name": "theater",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 8
+                        },
+                        {
+                            "id": 3050000,
+                            "name": "family",
+                            "parent_id": 3000000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "https://www.flickr.com/photos/miguel_discart/15946068904/in/photolist-qi6LJu-qXxNro-qXwFi5-7E9tgy-8sMNU9-4BFKnb-88PH2W-4BBBde-5wSCEn-5wS9Na-8sJCSi-8sMy7E-8sMvch-qi5pt5-88LtzT-88Lusi-reY2jz-6pypTD-88PGiY-6pypBR-ndRTYm-bqSLmp-6pCXbS-VfP2Fo-ekbwjE-k544Rj-dcQABS-6pyiwZ-6pCy21-ofbZM5-6pCvB7-6pyPbg-qXDN3V-8sMEwJ-8sN3h1-88LtGM-89c1PX-qi6K33-8sJNQ4-8sMMZo-oddb3j-8sJZZt-8sJDGH-88PHU5-rf1Vff-4BFLtG-qXDLUx-88PHQo-ax4Jqo-oUTeBD",
+                    "url": "https://seatgeek.com/disney-on-ice-dream-big-tickets",
+                    "score": 0.43,
+                    "slug": "disney-on-ice-dream-big",
+                    "home_venue_id": null,
+                    "short_name": "Disney On Ice Dream Big",
+                    "num_upcoming_events": 9,
+                    "colors": null,
+                    "image_license": "https://creativecommons.org/licenses/by-sa/2.0/",
+                    "popularity": 0,
+                    "location": null
+                }
+            ],
+            "is_open": false,
+            "links": [],
+            "datetime_local": "2021-04-29T19:00:00",
+            "time_tbd": false,
+            "short_title": "Disney On Ice Dream Big - Lexington",
+            "visible_until_utc": "2021-04-30T03:00:00",
+            "stats": {
+                "listing_count": 577,
+                "average_price": 73,
+                "lowest_price_good_deals": 56,
+                "lowest_price": 56,
+                "highest_price": 154,
+                "visible_listing_count": 323,
+                "dq_bucket_counts": [
+                    112,
+                    101,
+                    118,
+                    54,
+                    52,
+                    61,
+                    106,
+                    0
+                ],
+                "median_price": 68,
+                "lowest_sg_base_price": 39,
+                "lowest_sg_base_price_good_deals": 39
+            },
+            "taxonomies": [
+                {
+                    "id": 3000000,
+                    "name": "theater",
+                    "parent_id": null,
+                    "rank": 8
+                },
+                {
+                    "id": 3050000,
+                    "name": "family",
+                    "parent_id": 3000000,
+                    "rank": 0
+                }
+            ],
+            "url": "https://seatgeek.com/disney-on-ice-dream-big-lexington-tickets/family/2021-04-29-7-pm/5381299",
+            "score": 0.332,
+            "announce_date": "2021-03-26T00:00:00",
+            "created_at": "2021-03-26T16:19:41",
+            "date_tbd": false,
+            "title": "Disney On Ice Dream Big - Lexington",
+            "popularity": 0.569,
+            "description": "",
+            "status": "normal",
+            "access_method": {
+                "method": "QRCODE_TM",
+                "created_at": "2019-02-11T22:22:54Z",
+                "employee_only": false
+            },
+            "event_promotion": null,
+            "announcements": {},
+            "conditional": false,
+            "enddatetime_utc": null,
+            "themes": [],
+            "domain_information": []
+        },
+        {
+            "type": "family",
+            "id": 5382527,
+            "datetime_utc": "2021-04-30T00:30:00",
+            "venue": {
+                "state": "TX",
+                "name_v2": "Alamodome",
+                "postal_code": "78203",
+                "name": "Alamodome",
+                "links": [],
+                "timezone": "America/Chicago",
+                "url": "https://seatgeek.com/venues/alamodome/tickets",
+                "score": 0.770856,
+                "location": {
+                    "lat": 29.4169,
+                    "lon": -98.4788
+                },
+                "address": "100 Montana Street",
+                "country": "US",
+                "has_upcoming_events": true,
+                "num_upcoming_events": 17,
+                "city": "San Antonio",
+                "slug": "alamodome",
+                "extended_address": "San Antonio, TX 78203",
+                "id": 3726,
+                "popularity": 0,
+                "access_method": {
+                    "method": "NONE",
+                    "created_at": "2016-12-16T00:30:01Z",
+                    "employee_only": false
+                },
+                "metro_code": 641,
+                "capacity": 65000,
+                "display_location": "San Antonio, TX"
+            },
+            "datetime_tbd": false,
+            "performers": [
+                {
+                    "type": "theater_family",
+                    "name": "Disney On Ice: Mickey's Search Party",
+                    "image": "https://seatgeek.com/images/performers-landscape/disney-on-ice-mickey-s-search-party-3fc72a/687209/huge.jpg",
+                    "id": 687209,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/disney-on-ice-mickey-s-search-party-3fc72a/687209/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "primary": true,
+                    "stats": {
+                        "event_count": 39
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 3000000,
+                            "name": "theater",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 8
+                        },
+                        {
+                            "id": 3050000,
+                            "name": "family",
+                            "parent_id": 3000000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "https://www.flickr.com/photos/154528933@N02/35738475944/in/photolist-Ws62MJ-23Kxex-dcZ3J8-6RZ91X-dcZ681-dLsQzm-4hhRqV-ajg4kz-aChqcr-aCk6WG-aCk6JY-aChqqr-aChqHB-6QzMea-eJJthc-318oed-aCk5WU-aCk5Gh-4hmVWN-aCk685-6T7QWL-318Cs3-313ACp-dKLp6n-314uG6-978SpD-6ptV8q-978Spv-978Sp6-6QzM6k-978Spa-86S8JS-dKRU1J-Spe39E-6XSd2Y-6XNhYv-48hxkC-6XNbpx-6XNgtv-6XNeUF-dKLpCK-6XSf9L-48hxHU-97bPL7-6XNfbt-6XSfYQ-6QzMai-6sLtim-96kyCY-48hBkb/",
+                    "url": "https://seatgeek.com/disney-on-ice-mickey-s-search-party-tickets",
+                    "score": 0.39,
+                    "slug": "disney-on-ice-mickey-s-search-party",
+                    "home_venue_id": null,
+                    "short_name": "Disney On Ice: Mickey's Search Party",
+                    "num_upcoming_events": 39,
+                    "colors": null,
+                    "image_license": "https://creativecommons.org/licenses/by/2.0/",
+                    "popularity": 0,
+                    "location": null
+                }
+            ],
+            "is_open": false,
+            "links": [],
+            "datetime_local": "2021-04-29T19:30:00",
+            "time_tbd": false,
+            "short_title": "Disney On Ice: Mickey's Search Party - San Antonio",
+            "visible_until_utc": "2021-04-30T04:30:00",
+            "stats": {
+                "listing_count": 510,
+                "average_price": 101,
+                "lowest_price_good_deals": 53,
+                "lowest_price": 51,
+                "highest_price": 182,
+                "visible_listing_count": 242,
+                "dq_bucket_counts": [
+                    29,
+                    76,
+                    74,
+                    45,
+                    42,
+                    60,
+                    91,
+                    0
+                ],
+                "median_price": 82,
+                "lowest_sg_base_price": 34,
+                "lowest_sg_base_price_good_deals": 36
+            },
+            "taxonomies": [
+                {
+                    "id": 3000000,
+                    "name": "theater",
+                    "parent_id": null,
+                    "rank": 8
+                },
+                {
+                    "id": 3050000,
+                    "name": "family",
+                    "parent_id": 3000000,
+                    "rank": 0
+                }
+            ],
+            "url": "https://seatgeek.com/disney-on-ice-mickeys-search-party-san-antonio-tickets/family/2021-04-29-7-30-pm/5382527",
+            "score": 0.412,
+            "announce_date": "2021-04-02T00:00:00",
+            "created_at": "2021-04-02T16:10:56",
+            "date_tbd": false,
+            "title": "Disney On Ice: Mickey's Search Party - San Antonio",
+            "popularity": 0.574,
+            "description": "",
+            "status": "normal",
+            "access_method": {
+                "method": "NONE",
+                "created_at": "2016-12-16T00:30:01Z",
+                "employee_only": false
+            },
+            "event_promotion": null,
+            "announcements": {},
+            "conditional": false,
+            "enddatetime_utc": null,
+            "themes": [],
+            "domain_information": []
+        },
+        {
+            "type": "family",
+            "id": 5381292,
+            "datetime_utc": "2021-04-30T23:00:00",
+            "venue": {
+                "state": "KY",
+                "name_v2": "Rupp Arena",
+                "postal_code": "40507",
+                "name": "Rupp Arena",
+                "links": [],
+                "timezone": "America/New_York",
+                "url": "https://seatgeek.com/venues/rupp-arena/tickets",
+                "score": 0.7574,
+                "location": {
+                    "lat": 38.0495,
+                    "lon": -84.5024
+                },
+                "address": "430 W Vine St",
+                "country": "US",
+                "has_upcoming_events": true,
+                "num_upcoming_events": 20,
+                "city": "Lexington",
+                "slug": "rupp-arena",
+                "extended_address": "Lexington, KY 40507",
+                "id": 209,
+                "popularity": 0,
+                "access_method": {
+                    "method": "QRCODE_TM",
+                    "created_at": "2019-02-11T22:22:54Z",
+                    "employee_only": false
+                },
+                "metro_code": 541,
+                "capacity": 23500,
+                "display_location": "Lexington, KY"
+            },
+            "datetime_tbd": false,
+            "performers": [
+                {
+                    "type": "theater_family",
+                    "name": "Disney On Ice Dream Big",
+                    "image": "https://seatgeek.com/images/performers-landscape/disney-on-ice-dream-big-0da3cb/576406/huge.jpg",
+                    "id": 576406,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/disney-on-ice-dream-big-0da3cb/576406/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "primary": true,
+                    "stats": {
+                        "event_count": 9
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 3000000,
+                            "name": "theater",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 8
+                        },
+                        {
+                            "id": 3050000,
+                            "name": "family",
+                            "parent_id": 3000000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "https://www.flickr.com/photos/miguel_discart/15946068904/in/photolist-qi6LJu-qXxNro-qXwFi5-7E9tgy-8sMNU9-4BFKnb-88PH2W-4BBBde-5wSCEn-5wS9Na-8sJCSi-8sMy7E-8sMvch-qi5pt5-88LtzT-88Lusi-reY2jz-6pypTD-88PGiY-6pypBR-ndRTYm-bqSLmp-6pCXbS-VfP2Fo-ekbwjE-k544Rj-dcQABS-6pyiwZ-6pCy21-ofbZM5-6pCvB7-6pyPbg-qXDN3V-8sMEwJ-8sN3h1-88LtGM-89c1PX-qi6K33-8sJNQ4-8sMMZo-oddb3j-8sJZZt-8sJDGH-88PHU5-rf1Vff-4BFLtG-qXDLUx-88PHQo-ax4Jqo-oUTeBD",
+                    "url": "https://seatgeek.com/disney-on-ice-dream-big-tickets",
+                    "score": 0.43,
+                    "slug": "disney-on-ice-dream-big",
+                    "home_venue_id": null,
+                    "short_name": "Disney On Ice Dream Big",
+                    "num_upcoming_events": 9,
+                    "colors": null,
+                    "image_license": "https://creativecommons.org/licenses/by-sa/2.0/",
+                    "popularity": 0,
+                    "location": null
+                }
+            ],
+            "is_open": false,
+            "links": [],
+            "datetime_local": "2021-04-30T19:00:00",
+            "time_tbd": false,
+            "short_title": "Disney On Ice Dream Big - Lexington",
+            "visible_until_utc": "2021-05-01T03:00:00",
+            "stats": {
+                "listing_count": 443,
+                "average_price": 76,
+                "lowest_price_good_deals": 55,
+                "lowest_price": 55,
+                "highest_price": 154,
+                "visible_listing_count": 250,
+                "dq_bucket_counts": [
+                    78,
+                    34,
+                    95,
+                    80,
+                    56,
+                    71,
+                    46,
+                    0
+                ],
+                "median_price": 70,
+                "lowest_sg_base_price": 38,
+                "lowest_sg_base_price_good_deals": 38
+            },
+            "taxonomies": [
+                {
+                    "id": 3000000,
+                    "name": "theater",
+                    "parent_id": null,
+                    "rank": 8
+                },
+                {
+                    "id": 3050000,
+                    "name": "family",
+                    "parent_id": 3000000,
+                    "rank": 0
+                }
+            ],
+            "url": "https://seatgeek.com/disney-on-ice-dream-big-lexington-tickets/family/2021-04-30-7-pm/5381292",
+            "score": 0.345,
+            "announce_date": "2021-03-26T00:00:00",
+            "created_at": "2021-03-26T16:19:40",
+            "date_tbd": false,
+            "title": "Disney On Ice Dream Big - Lexington",
+            "popularity": 0.575,
+            "description": "",
+            "status": "normal",
+            "access_method": {
+                "method": "QRCODE_TM",
+                "created_at": "2019-02-11T22:22:54Z",
+                "employee_only": false
+            },
+            "event_promotion": null,
+            "announcements": {},
+            "conditional": false,
+            "enddatetime_utc": null,
+            "themes": [],
+            "domain_information": []
+        },
+        {
+            "type": "family",
+            "id": 5382520,
+            "datetime_utc": "2021-05-01T00:30:00",
+            "venue": {
+                "state": "TX",
+                "name_v2": "Alamodome",
+                "postal_code": "78203",
+                "name": "Alamodome",
+                "links": [],
+                "timezone": "America/Chicago",
+                "url": "https://seatgeek.com/venues/alamodome/tickets",
+                "score": 0.770856,
+                "location": {
+                    "lat": 29.4169,
+                    "lon": -98.4788
+                },
+                "address": "100 Montana Street",
+                "country": "US",
+                "has_upcoming_events": true,
+                "num_upcoming_events": 17,
+                "city": "San Antonio",
+                "slug": "alamodome",
+                "extended_address": "San Antonio, TX 78203",
+                "id": 3726,
+                "popularity": 0,
+                "access_method": {
+                    "method": "NONE",
+                    "created_at": "2016-12-16T00:30:01Z",
+                    "employee_only": false
+                },
+                "metro_code": 641,
+                "capacity": 65000,
+                "display_location": "San Antonio, TX"
+            },
+            "datetime_tbd": false,
+            "performers": [
+                {
+                    "type": "theater_family",
+                    "name": "Disney On Ice: Mickey's Search Party",
+                    "image": "https://seatgeek.com/images/performers-landscape/disney-on-ice-mickey-s-search-party-3fc72a/687209/huge.jpg",
+                    "id": 687209,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/disney-on-ice-mickey-s-search-party-3fc72a/687209/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "primary": true,
+                    "stats": {
+                        "event_count": 39
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 3000000,
+                            "name": "theater",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 8
+                        },
+                        {
+                            "id": 3050000,
+                            "name": "family",
+                            "parent_id": 3000000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "https://www.flickr.com/photos/154528933@N02/35738475944/in/photolist-Ws62MJ-23Kxex-dcZ3J8-6RZ91X-dcZ681-dLsQzm-4hhRqV-ajg4kz-aChqcr-aCk6WG-aCk6JY-aChqqr-aChqHB-6QzMea-eJJthc-318oed-aCk5WU-aCk5Gh-4hmVWN-aCk685-6T7QWL-318Cs3-313ACp-dKLp6n-314uG6-978SpD-6ptV8q-978Spv-978Sp6-6QzM6k-978Spa-86S8JS-dKRU1J-Spe39E-6XSd2Y-6XNhYv-48hxkC-6XNbpx-6XNgtv-6XNeUF-dKLpCK-6XSf9L-48hxHU-97bPL7-6XNfbt-6XSfYQ-6QzMai-6sLtim-96kyCY-48hBkb/",
+                    "url": "https://seatgeek.com/disney-on-ice-mickey-s-search-party-tickets",
+                    "score": 0.39,
+                    "slug": "disney-on-ice-mickey-s-search-party",
+                    "home_venue_id": null,
+                    "short_name": "Disney On Ice: Mickey's Search Party",
+                    "num_upcoming_events": 39,
+                    "colors": null,
+                    "image_license": "https://creativecommons.org/licenses/by/2.0/",
+                    "popularity": 0,
+                    "location": null
+                }
+            ],
+            "is_open": false,
+            "links": [],
+            "datetime_local": "2021-04-30T19:30:00",
+            "time_tbd": false,
+            "short_title": "Disney On Ice: Mickey's Search Party - San Antonio",
+            "visible_until_utc": "2021-05-01T04:30:00",
+            "stats": {
+                "listing_count": 389,
+                "average_price": 110,
+                "lowest_price_good_deals": 58,
+                "lowest_price": 51,
+                "highest_price": 368,
+                "visible_listing_count": 232,
+                "dq_bucket_counts": [
+                    23,
+                    52,
+                    54,
+                    32,
+                    21,
+                    35,
+                    53,
+                    0
+                ],
+                "median_price": 86,
+                "lowest_sg_base_price": 34,
+                "lowest_sg_base_price_good_deals": 40
+            },
+            "taxonomies": [
+                {
+                    "id": 3000000,
+                    "name": "theater",
+                    "parent_id": null,
+                    "rank": 8
+                },
+                {
+                    "id": 3050000,
+                    "name": "family",
+                    "parent_id": 3000000,
+                    "rank": 0
+                }
+            ],
+            "url": "https://seatgeek.com/disney-on-ice-mickeys-search-party-san-antonio-tickets/family/2021-04-30-7-30-pm/5382520",
+            "score": 0.382,
+            "announce_date": "2021-04-02T00:00:00",
+            "created_at": "2021-04-02T16:10:56",
+            "date_tbd": false,
+            "title": "Disney On Ice: Mickey's Search Party - San Antonio",
+            "popularity": 0.545,
+            "description": "",
+            "status": "normal",
+            "access_method": {
+                "method": "NONE",
+                "created_at": "2016-12-16T00:30:01Z",
+                "employee_only": false
+            },
+            "event_promotion": null,
+            "announcements": {},
+            "conditional": false,
+            "enddatetime_utc": null,
+            "themes": [],
+            "domain_information": []
+        },
+        {
+            "type": "classical_orchestral_instrumental",
+            "id": 4801961,
+            "datetime_utc": "2021-05-01T10:30:00",
+            "venue": {
+                "state": "CA",
+                "name_v2": "Walt Disney Concert Hall",
+                "postal_code": "90012",
+                "name": "Walt Disney Concert Hall",
+                "links": [],
+                "timezone": "America/Los_Angeles",
+                "url": "https://seatgeek.com/venues/walt-disney-concert-hall/tickets",
+                "score": 0.571249,
+                "location": {
+                    "lat": 34.0551,
+                    "lon": -118.249
+                },
+                "address": "111 South Grand Avenue",
+                "country": "US",
+                "has_upcoming_events": true,
+                "num_upcoming_events": 46,
+                "city": "Los Angeles",
+                "slug": "walt-disney-concert-hall",
+                "extended_address": "Los Angeles, CA 90012",
+                "id": 1274,
+                "popularity": 0,
+                "access_method": null,
+                "metro_code": 803,
+                "capacity": 2265,
+                "display_location": "Los Angeles, CA"
+            },
+            "datetime_tbd": true,
+            "performers": [
+                {
+                    "type": "theater_classical_orchestral_instrumental",
+                    "name": "Los Angeles Philharmonic",
+                    "image": "https://seatgeek.com/images/performers-landscape/los-angeles-philharmonic-2e497c/5301/huge.jpg",
+                    "id": 5301,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/los-angeles-philharmonic-2e497c/5301/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "primary": true,
+                    "stats": {
+                        "event_count": 46
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 3000000,
+                            "name": "theater",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 8
+                        },
+                        {
+                            "id": 3010000,
+                            "name": "classical",
+                            "parent_id": 3000000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        },
+                        {
+                            "id": 3010300,
+                            "name": "classical_orchestral_instrumental",
+                            "parent_id": 3010000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "Hiroyuki Ito / Hulton Archive / Getty Images",
+                    "url": "https://seatgeek.com/los-angeles-philharmonic-tickets",
+                    "score": 0.51,
+                    "slug": "los-angeles-philharmonic",
+                    "home_venue_id": null,
+                    "short_name": "Los Angeles Philharmonic",
+                    "num_upcoming_events": 46,
+                    "colors": null,
+                    "image_license": "rightsmanaged",
+                    "popularity": 0,
+                    "location": null
+                },
+                {
+                    "type": "theater_classical",
+                    "name": "Susanna Malkki",
+                    "image": "https://seatgeek.com/images/performers-landscape/susanna-malkki-1cac7e/287348/huge.jpg",
+                    "id": 287348,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/susanna-malkki-1cac7e/287348/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "stats": {
+                        "event_count": 4
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 3000000,
+                            "name": "theater",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 8
+                        },
+                        {
+                            "id": 3010000,
+                            "name": "classical",
+                            "parent_id": 3000000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "Hiroyuki Ito / Hulton Archive / Getty Images",
+                    "url": "https://seatgeek.com/susanna-malkki-tickets",
+                    "score": 0.44,
+                    "slug": "susanna-malkki",
+                    "home_venue_id": null,
+                    "short_name": "Susanna Malkki",
+                    "num_upcoming_events": 4,
+                    "colors": null,
+                    "image_license": "rightsmanaged",
+                    "popularity": 0,
+                    "location": null
+                }
+            ],
+            "is_open": false,
+            "links": [],
+            "datetime_local": "2021-05-01T03:30:00",
+            "time_tbd": true,
+            "short_title": "Los Angeles Philharmonic - Los Angeles",
+            "visible_until_utc": "2021-05-02T07:00:00",
+            "stats": {
+                "listing_count": null,
+                "average_price": null,
+                "lowest_price_good_deals": null,
+                "lowest_price": null,
+                "highest_price": null,
+                "visible_listing_count": null,
+                "dq_bucket_counts": null,
+                "median_price": null,
+                "lowest_sg_base_price": null,
+                "lowest_sg_base_price_good_deals": null
+            },
+            "taxonomies": [
+                {
+                    "id": 3000000,
+                    "name": "theater",
+                    "parent_id": null,
+                    "rank": 8
+                },
+                {
+                    "id": 3010000,
+                    "name": "classical",
+                    "parent_id": 3000000,
+                    "rank": 0
+                },
+                {
+                    "id": 3010300,
+                    "name": "classical_orchestral_instrumental",
+                    "parent_id": 3010000,
+                    "rank": 0
+                }
+            ],
+            "url": "https://seatgeek.com/los-angeles-philharmonic-los-angeles-tickets/orchestral/2021-05-01-3-30-am/4801961",
+            "score": 0.42,
+            "announce_date": "2019-03-29T00:00:00",
+            "created_at": "2019-03-29T16:21:14",
+            "date_tbd": true,
+            "title": "Los Angeles Philharmonic - Los Angeles",
+            "popularity": 0.606,
+            "description": "",
+            "status": "normal",
+            "access_method": null,
+            "event_promotion": null,
+            "announcements": {},
+            "conditional": false,
+            "enddatetime_utc": null,
+            "themes": [],
+            "domain_information": []
+        },
+        {
+            "type": "family",
+            "id": 5381300,
+            "datetime_utc": "2021-05-01T15:00:00",
+            "venue": {
+                "state": "KY",
+                "name_v2": "Rupp Arena",
+                "postal_code": "40507",
+                "name": "Rupp Arena",
+                "links": [],
+                "timezone": "America/New_York",
+                "url": "https://seatgeek.com/venues/rupp-arena/tickets",
+                "score": 0.7574,
+                "location": {
+                    "lat": 38.0495,
+                    "lon": -84.5024
+                },
+                "address": "430 W Vine St",
+                "country": "US",
+                "has_upcoming_events": true,
+                "num_upcoming_events": 20,
+                "city": "Lexington",
+                "slug": "rupp-arena",
+                "extended_address": "Lexington, KY 40507",
+                "id": 209,
+                "popularity": 0,
+                "access_method": {
+                    "method": "QRCODE_TM",
+                    "created_at": "2019-02-11T22:22:54Z",
+                    "employee_only": false
+                },
+                "metro_code": 541,
+                "capacity": 23500,
+                "display_location": "Lexington, KY"
+            },
+            "datetime_tbd": false,
+            "performers": [
+                {
+                    "type": "theater_family",
+                    "name": "Disney On Ice Dream Big",
+                    "image": "https://seatgeek.com/images/performers-landscape/disney-on-ice-dream-big-0da3cb/576406/huge.jpg",
+                    "id": 576406,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/disney-on-ice-dream-big-0da3cb/576406/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "primary": true,
+                    "stats": {
+                        "event_count": 9
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 3000000,
+                            "name": "theater",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 8
+                        },
+                        {
+                            "id": 3050000,
+                            "name": "family",
+                            "parent_id": 3000000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "https://www.flickr.com/photos/miguel_discart/15946068904/in/photolist-qi6LJu-qXxNro-qXwFi5-7E9tgy-8sMNU9-4BFKnb-88PH2W-4BBBde-5wSCEn-5wS9Na-8sJCSi-8sMy7E-8sMvch-qi5pt5-88LtzT-88Lusi-reY2jz-6pypTD-88PGiY-6pypBR-ndRTYm-bqSLmp-6pCXbS-VfP2Fo-ekbwjE-k544Rj-dcQABS-6pyiwZ-6pCy21-ofbZM5-6pCvB7-6pyPbg-qXDN3V-8sMEwJ-8sN3h1-88LtGM-89c1PX-qi6K33-8sJNQ4-8sMMZo-oddb3j-8sJZZt-8sJDGH-88PHU5-rf1Vff-4BFLtG-qXDLUx-88PHQo-ax4Jqo-oUTeBD",
+                    "url": "https://seatgeek.com/disney-on-ice-dream-big-tickets",
+                    "score": 0.43,
+                    "slug": "disney-on-ice-dream-big",
+                    "home_venue_id": null,
+                    "short_name": "Disney On Ice Dream Big",
+                    "num_upcoming_events": 9,
+                    "colors": null,
+                    "image_license": "https://creativecommons.org/licenses/by-sa/2.0/",
+                    "popularity": 0,
+                    "location": null
+                }
+            ],
+            "is_open": false,
+            "links": [],
+            "datetime_local": "2021-05-01T11:00:00",
+            "time_tbd": false,
+            "short_title": "Disney On Ice Dream Big - Lexington",
+            "visible_until_utc": "2021-05-01T19:00:00",
+            "stats": {
+                "listing_count": 392,
+                "average_price": 80,
+                "lowest_price_good_deals": 51,
+                "lowest_price": 51,
+                "highest_price": 453,
+                "visible_listing_count": 235,
+                "dq_bucket_counts": [
+                    62,
+                    50,
+                    76,
+                    47,
+                    54,
+                    58,
+                    24,
+                    0
+                ],
+                "median_price": 74,
+                "lowest_sg_base_price": 34,
+                "lowest_sg_base_price_good_deals": 34
+            },
+            "taxonomies": [
+                {
+                    "id": 3000000,
+                    "name": "theater",
+                    "parent_id": null,
+                    "rank": 8
+                },
+                {
+                    "id": 3050000,
+                    "name": "family",
+                    "parent_id": 3000000,
+                    "rank": 0
+                }
+            ],
+            "url": "https://seatgeek.com/disney-on-ice-dream-big-lexington-tickets/family/2021-05-01-11-am/5381300",
+            "score": 0.366,
+            "announce_date": "2021-03-26T00:00:00",
+            "created_at": "2021-03-26T16:19:41",
+            "date_tbd": false,
+            "title": "Disney On Ice Dream Big - Lexington",
+            "popularity": 0.582,
+            "description": "",
+            "status": "normal",
+            "access_method": {
+                "method": "QRCODE_TM",
+                "created_at": "2019-02-11T22:22:54Z",
+                "employee_only": false
+            },
+            "event_promotion": null,
+            "announcements": {},
+            "conditional": false,
+            "enddatetime_utc": null,
+            "themes": [],
+            "domain_information": []
+        },
+        {
+            "type": "family",
+            "id": 5382522,
+            "datetime_utc": "2021-05-01T15:30:00",
+            "venue": {
+                "state": "TX",
+                "name_v2": "Alamodome",
+                "postal_code": "78203",
+                "name": "Alamodome",
+                "links": [],
+                "timezone": "America/Chicago",
+                "url": "https://seatgeek.com/venues/alamodome/tickets",
+                "score": 0.770856,
+                "location": {
+                    "lat": 29.4169,
+                    "lon": -98.4788
+                },
+                "address": "100 Montana Street",
+                "country": "US",
+                "has_upcoming_events": true,
+                "num_upcoming_events": 17,
+                "city": "San Antonio",
+                "slug": "alamodome",
+                "extended_address": "San Antonio, TX 78203",
+                "id": 3726,
+                "popularity": 0,
+                "access_method": {
+                    "method": "NONE",
+                    "created_at": "2016-12-16T00:30:01Z",
+                    "employee_only": false
+                },
+                "metro_code": 641,
+                "capacity": 65000,
+                "display_location": "San Antonio, TX"
+            },
+            "datetime_tbd": false,
+            "performers": [
+                {
+                    "type": "theater_family",
+                    "name": "Disney On Ice: Mickey's Search Party",
+                    "image": "https://seatgeek.com/images/performers-landscape/disney-on-ice-mickey-s-search-party-3fc72a/687209/huge.jpg",
+                    "id": 687209,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/disney-on-ice-mickey-s-search-party-3fc72a/687209/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "primary": true,
+                    "stats": {
+                        "event_count": 39
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 3000000,
+                            "name": "theater",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 8
+                        },
+                        {
+                            "id": 3050000,
+                            "name": "family",
+                            "parent_id": 3000000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "https://www.flickr.com/photos/154528933@N02/35738475944/in/photolist-Ws62MJ-23Kxex-dcZ3J8-6RZ91X-dcZ681-dLsQzm-4hhRqV-ajg4kz-aChqcr-aCk6WG-aCk6JY-aChqqr-aChqHB-6QzMea-eJJthc-318oed-aCk5WU-aCk5Gh-4hmVWN-aCk685-6T7QWL-318Cs3-313ACp-dKLp6n-314uG6-978SpD-6ptV8q-978Spv-978Sp6-6QzM6k-978Spa-86S8JS-dKRU1J-Spe39E-6XSd2Y-6XNhYv-48hxkC-6XNbpx-6XNgtv-6XNeUF-dKLpCK-6XSf9L-48hxHU-97bPL7-6XNfbt-6XSfYQ-6QzMai-6sLtim-96kyCY-48hBkb/",
+                    "url": "https://seatgeek.com/disney-on-ice-mickey-s-search-party-tickets",
+                    "score": 0.39,
+                    "slug": "disney-on-ice-mickey-s-search-party",
+                    "home_venue_id": null,
+                    "short_name": "Disney On Ice: Mickey's Search Party",
+                    "num_upcoming_events": 39,
+                    "colors": null,
+                    "image_license": "https://creativecommons.org/licenses/by/2.0/",
+                    "popularity": 0,
+                    "location": null
+                }
+            ],
+            "is_open": false,
+            "links": [],
+            "datetime_local": "2021-05-01T10:30:00",
+            "time_tbd": false,
+            "short_title": "Disney On Ice: Mickey's Search Party - San Antonio",
+            "visible_until_utc": "2021-05-01T19:30:00",
+            "stats": {
+                "listing_count": 504,
+                "average_price": 107,
+                "lowest_price_good_deals": 64,
+                "lowest_price": 49,
+                "highest_price": 424,
+                "visible_listing_count": 266,
+                "dq_bucket_counts": [
+                    26,
+                    82,
+                    79,
+                    30,
+                    21,
+                    47,
+                    75,
+                    0
+                ],
+                "median_price": 83,
+                "lowest_sg_base_price": 32,
+                "lowest_sg_base_price_good_deals": 44
+            },
+            "taxonomies": [
+                {
+                    "id": 3000000,
+                    "name": "theater",
+                    "parent_id": null,
+                    "rank": 8
+                },
+                {
+                    "id": 3050000,
+                    "name": "family",
+                    "parent_id": 3000000,
+                    "rank": 0
+                }
+            ],
+            "url": "https://seatgeek.com/disney-on-ice-mickeys-search-party-san-antonio-tickets/family/2021-05-01-10-30-am/5382522",
+            "score": 0.412,
+            "announce_date": "2021-04-02T00:00:00",
+            "created_at": "2021-04-02T16:10:56",
+            "date_tbd": false,
+            "title": "Disney On Ice: Mickey's Search Party - San Antonio",
+            "popularity": 0.574,
+            "description": "",
+            "status": "normal",
+            "access_method": {
+                "method": "NONE",
+                "created_at": "2016-12-16T00:30:01Z",
+                "employee_only": false
+            },
+            "event_promotion": null,
+            "announcements": {},
+            "conditional": false,
+            "enddatetime_utc": null,
+            "themes": [],
+            "domain_information": []
+        },
+        {
+            "type": "family",
+            "id": 5381287,
+            "datetime_utc": "2021-05-01T19:00:00",
+            "venue": {
+                "state": "KY",
+                "name_v2": "Rupp Arena",
+                "postal_code": "40507",
+                "name": "Rupp Arena",
+                "links": [],
+                "timezone": "America/New_York",
+                "url": "https://seatgeek.com/venues/rupp-arena/tickets",
+                "score": 0.7574,
+                "location": {
+                    "lat": 38.0495,
+                    "lon": -84.5024
+                },
+                "address": "430 W Vine St",
+                "country": "US",
+                "has_upcoming_events": true,
+                "num_upcoming_events": 20,
+                "city": "Lexington",
+                "slug": "rupp-arena",
+                "extended_address": "Lexington, KY 40507",
+                "id": 209,
+                "popularity": 0,
+                "access_method": {
+                    "method": "QRCODE_TM",
+                    "created_at": "2019-02-11T22:22:54Z",
+                    "employee_only": false
+                },
+                "metro_code": 541,
+                "capacity": 23500,
+                "display_location": "Lexington, KY"
+            },
+            "datetime_tbd": false,
+            "performers": [
+                {
+                    "type": "theater_family",
+                    "name": "Disney On Ice Dream Big",
+                    "image": "https://seatgeek.com/images/performers-landscape/disney-on-ice-dream-big-0da3cb/576406/huge.jpg",
+                    "id": 576406,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/disney-on-ice-dream-big-0da3cb/576406/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "primary": true,
+                    "stats": {
+                        "event_count": 9
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 3000000,
+                            "name": "theater",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 8
+                        },
+                        {
+                            "id": 3050000,
+                            "name": "family",
+                            "parent_id": 3000000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "https://www.flickr.com/photos/miguel_discart/15946068904/in/photolist-qi6LJu-qXxNro-qXwFi5-7E9tgy-8sMNU9-4BFKnb-88PH2W-4BBBde-5wSCEn-5wS9Na-8sJCSi-8sMy7E-8sMvch-qi5pt5-88LtzT-88Lusi-reY2jz-6pypTD-88PGiY-6pypBR-ndRTYm-bqSLmp-6pCXbS-VfP2Fo-ekbwjE-k544Rj-dcQABS-6pyiwZ-6pCy21-ofbZM5-6pCvB7-6pyPbg-qXDN3V-8sMEwJ-8sN3h1-88LtGM-89c1PX-qi6K33-8sJNQ4-8sMMZo-oddb3j-8sJZZt-8sJDGH-88PHU5-rf1Vff-4BFLtG-qXDLUx-88PHQo-ax4Jqo-oUTeBD",
+                    "url": "https://seatgeek.com/disney-on-ice-dream-big-tickets",
+                    "score": 0.43,
+                    "slug": "disney-on-ice-dream-big",
+                    "home_venue_id": null,
+                    "short_name": "Disney On Ice Dream Big",
+                    "num_upcoming_events": 9,
+                    "colors": null,
+                    "image_license": "https://creativecommons.org/licenses/by-sa/2.0/",
+                    "popularity": 0,
+                    "location": null
+                }
+            ],
+            "is_open": false,
+            "links": [],
+            "datetime_local": "2021-05-01T15:00:00",
+            "time_tbd": false,
+            "short_title": "Disney On Ice Dream Big - Lexington",
+            "visible_until_utc": "2021-05-01T23:00:00",
+            "stats": {
+                "listing_count": 261,
+                "average_price": 85,
+                "lowest_price_good_deals": 51,
+                "lowest_price": 51,
+                "highest_price": 341,
+                "visible_listing_count": 161,
+                "dq_bucket_counts": [
+                    23,
+                    47,
+                    66,
+                    40,
+                    38,
+                    34,
+                    16,
+                    0
+                ],
+                "median_price": 75,
+                "lowest_sg_base_price": 34,
+                "lowest_sg_base_price_good_deals": 34
+            },
+            "taxonomies": [
+                {
+                    "id": 3000000,
+                    "name": "theater",
+                    "parent_id": null,
+                    "rank": 8
+                },
+                {
+                    "id": 3050000,
+                    "name": "family",
+                    "parent_id": 3000000,
+                    "rank": 0
+                }
+            ],
+            "url": "https://seatgeek.com/disney-on-ice-dream-big-lexington-tickets/family/2021-05-01-3-pm/5381287",
+            "score": 0.371,
+            "announce_date": "2021-03-26T00:00:00",
+            "created_at": "2021-03-26T16:19:39",
+            "date_tbd": false,
+            "title": "Disney On Ice Dream Big - Lexington",
+            "popularity": 0.585,
+            "description": "",
+            "status": "normal",
+            "access_method": {
+                "method": "QRCODE_TM",
+                "created_at": "2019-02-11T22:22:54Z",
+                "employee_only": false
+            },
+            "event_promotion": null,
+            "announcements": {},
+            "conditional": false,
+            "enddatetime_utc": null,
+            "themes": [],
+            "domain_information": []
+        },
+        {
+            "type": "family",
+            "id": 5382525,
+            "datetime_utc": "2021-05-01T20:00:00",
+            "venue": {
+                "state": "TX",
+                "name_v2": "Alamodome",
+                "postal_code": "78203",
+                "name": "Alamodome",
+                "links": [],
+                "timezone": "America/Chicago",
+                "url": "https://seatgeek.com/venues/alamodome/tickets",
+                "score": 0.770856,
+                "location": {
+                    "lat": 29.4169,
+                    "lon": -98.4788
+                },
+                "address": "100 Montana Street",
+                "country": "US",
+                "has_upcoming_events": true,
+                "num_upcoming_events": 17,
+                "city": "San Antonio",
+                "slug": "alamodome",
+                "extended_address": "San Antonio, TX 78203",
+                "id": 3726,
+                "popularity": 0,
+                "access_method": {
+                    "method": "NONE",
+                    "created_at": "2016-12-16T00:30:01Z",
+                    "employee_only": false
+                },
+                "metro_code": 641,
+                "capacity": 65000,
+                "display_location": "San Antonio, TX"
+            },
+            "datetime_tbd": false,
+            "performers": [
+                {
+                    "type": "theater_family",
+                    "name": "Disney On Ice: Mickey's Search Party",
+                    "image": "https://seatgeek.com/images/performers-landscape/disney-on-ice-mickey-s-search-party-3fc72a/687209/huge.jpg",
+                    "id": 687209,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/disney-on-ice-mickey-s-search-party-3fc72a/687209/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "primary": true,
+                    "stats": {
+                        "event_count": 39
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 3000000,
+                            "name": "theater",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 8
+                        },
+                        {
+                            "id": 3050000,
+                            "name": "family",
+                            "parent_id": 3000000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "https://www.flickr.com/photos/154528933@N02/35738475944/in/photolist-Ws62MJ-23Kxex-dcZ3J8-6RZ91X-dcZ681-dLsQzm-4hhRqV-ajg4kz-aChqcr-aCk6WG-aCk6JY-aChqqr-aChqHB-6QzMea-eJJthc-318oed-aCk5WU-aCk5Gh-4hmVWN-aCk685-6T7QWL-318Cs3-313ACp-dKLp6n-314uG6-978SpD-6ptV8q-978Spv-978Sp6-6QzM6k-978Spa-86S8JS-dKRU1J-Spe39E-6XSd2Y-6XNhYv-48hxkC-6XNbpx-6XNgtv-6XNeUF-dKLpCK-6XSf9L-48hxHU-97bPL7-6XNfbt-6XSfYQ-6QzMai-6sLtim-96kyCY-48hBkb/",
+                    "url": "https://seatgeek.com/disney-on-ice-mickey-s-search-party-tickets",
+                    "score": 0.39,
+                    "slug": "disney-on-ice-mickey-s-search-party",
+                    "home_venue_id": null,
+                    "short_name": "Disney On Ice: Mickey's Search Party",
+                    "num_upcoming_events": 39,
+                    "colors": null,
+                    "image_license": "https://creativecommons.org/licenses/by/2.0/",
+                    "popularity": 0,
+                    "location": null
+                }
+            ],
+            "is_open": false,
+            "links": [],
+            "datetime_local": "2021-05-01T15:00:00",
+            "time_tbd": false,
+            "short_title": "Disney On Ice: Mickey's Search Party - San Antonio",
+            "visible_until_utc": "2021-05-02T00:00:00",
+            "stats": {
+                "listing_count": 380,
+                "average_price": 109,
+                "lowest_price_good_deals": 53,
+                "lowest_price": 51,
+                "highest_price": 228,
+                "visible_listing_count": 221,
+                "dq_bucket_counts": [
+                    25,
+                    41,
+                    59,
+                    31,
+                    17,
+                    26,
+                    77,
+                    0
+                ],
+                "median_price": 96,
+                "lowest_sg_base_price": 34,
+                "lowest_sg_base_price_good_deals": 37
+            },
+            "taxonomies": [
+                {
+                    "id": 3000000,
+                    "name": "theater",
+                    "parent_id": null,
+                    "rank": 8
+                },
+                {
+                    "id": 3050000,
+                    "name": "family",
+                    "parent_id": 3000000,
+                    "rank": 0
+                }
+            ],
+            "url": "https://seatgeek.com/disney-on-ice-mickeys-search-party-san-antonio-tickets/family/2021-05-01-3-pm/5382525",
+            "score": 0.413,
+            "announce_date": "2021-04-02T00:00:00",
+            "created_at": "2021-04-02T16:10:56",
+            "date_tbd": false,
+            "title": "Disney On Ice: Mickey's Search Party - San Antonio",
+            "popularity": 0.576,
+            "description": "",
+            "status": "normal",
+            "access_method": {
+                "method": "NONE",
+                "created_at": "2016-12-16T00:30:01Z",
+                "employee_only": false
+            },
+            "event_promotion": null,
+            "announcements": {},
+            "conditional": false,
+            "enddatetime_utc": null,
+            "themes": [],
+            "domain_information": []
+        }
+    ],
+    "meta": {
+        "total": 413,
+        "took": 5,
+        "page": 1,
+        "per_page": 10,
+        "geolocation": null
+    },
+    "in_hand": {}
+}

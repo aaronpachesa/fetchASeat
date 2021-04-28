@@ -11,6 +11,9 @@ class fetchASeatUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        guard let pathString = Bundle(for: type(of: self)).path(forResource: "UnitTestData", ofType: "json") else {
+            fatalError("UnitTestData.json not found")
+        }
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false

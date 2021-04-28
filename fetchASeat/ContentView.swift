@@ -62,9 +62,9 @@ struct ContentView: View {
                 }
             
             HStack {
-                Button("do it") {
-                    loadData()
-                }
+//                Button("do it") {
+//                    loadData()
+//                }
                 
                 TextField("Search events", text: $searchText)
                                         .onChange(of: searchText) { newValue in
@@ -138,7 +138,7 @@ struct ContentView: View {
                                     Image(systemName: "heart")
                                         .offset(x: 150, y: -100)
                                                                             .font(.system(size: 40))
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(.red)
                                     
                                 }
 //                                saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
