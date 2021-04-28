@@ -38,8 +38,9 @@ struct Huge: Codable {
     let huge: String
 }
 
-var saveArray = [Int]()
+//var saveArray = [Int]()
 let userDefaults = UserDefaults.standard
+var saveArray: [Int] = userDefaults.object(forKey: "saveArray") as? [Int] ?? []
 
 struct ContentView: View {
     @State private var isEditing = false
@@ -49,9 +50,13 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+//            Text("\(saveArray[0])")
             Text("Fetch-a-🪑")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+                        print(saveArray)
+                    }
 
             HStack {
                 Button("do it") {
@@ -128,6 +133,7 @@ struct ContentView: View {
                 .navigationTitle("")
                 .navigationBarHidden(true)
             }
+            
         }
     }
     
@@ -167,6 +173,9 @@ struct DetailView: View {
                     .data(url: URL(string: "\(event.performers[0].images.huge)")!)
                     .aspectRatio(contentMode: .fit)
                 
+                if saveArray.contains(event.id) {
+                    Button
+                }
                 
                 Button(action: {
                     
@@ -174,6 +183,9 @@ struct DetailView: View {
                     if saveArray.contains(event.id) {
                         print("Save button was tapped")
                         saveArray.removeAll(where: { $0 == event.id })
+                        userDefaults.set(saveArray, forKey: "saveArray")
+                        
+
                         print(saveArray)
                         saveFill.toggle()
                     } else {
@@ -186,23 +198,25 @@ struct DetailView: View {
                     }
                     
                 }) {
-                    if !saveArray.contains(event.id) {
-                        Image(systemName: "heart.fill")
-                                .font(.system(size: 40))
-                    } else {
-                        Image(systemName: "heart")
-                                .font(.system(size: 40))
-
+                    ZStack {
+                        saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
+//                        saveFill ? Image(systemName: "heart") : Image(systemName: "heart.fill")
                     }
                     
-                    
-//                    else {
+//                    if !saveArray.contains(event.id) && saveFill {
+//                        Image(systemName: "heart.fill")
+//                                .font(.system(size: 40))
+//                    } else {
 //                        Image(systemName: "heart")
-//                            .font(.system(size: 40))
+//                                .font(.system(size: 40))
+//
 //                    }
                     
                 }
                 .offset(x: 150, y: 20)
+                                                .font(.system(size: 40))
+                
+
                 
             }
             Text(event.venue.display_location)
