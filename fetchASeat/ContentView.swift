@@ -47,6 +47,8 @@ struct ContentView: View {
     @State private var searchText = ""
     @State var events = [Event]()
     @State private var notFoundAlert = false
+    @Environment(\.presentationMode) var presentationMode
+
     
     var body: some View {
         VStack {
@@ -162,6 +164,8 @@ struct ContentView: View {
 }
 
 struct DetailView: View {
+    @Environment(\.presentationMode) var presentationMode
+
     @State private var saveFill = false
     var event: Event
     var body: some View {
@@ -173,9 +177,7 @@ struct DetailView: View {
                     .data(url: URL(string: "\(event.performers[0].images.huge)")!)
                     .aspectRatio(contentMode: .fit)
                 
-                if saveArray.contains(event.id) {
-                    Button
-                }
+                
                 
                 Button(action: {
                     
@@ -187,21 +189,21 @@ struct DetailView: View {
                         
 
                         print(saveArray)
-                        saveFill.toggle()
+                        presentationMode.wrappedValue.dismiss()
                     } else {
                         print("Save button was tapped")
                         saveArray.append(event.id)
                         userDefaults.set(saveArray, forKey: "saveArray")
                         print(saveArray)
-                        saveFill.toggle()
+                        presentationMode.wrappedValue.dismiss()
 
                     }
                     
                 }) {
-                    ZStack {
+                    
                         saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
 //                        saveFill ? Image(systemName: "heart") : Image(systemName: "heart.fill")
-                    }
+                    
                     
 //                    if !saveArray.contains(event.id) && saveFill {
 //                        Image(systemName: "heart.fill")
@@ -216,6 +218,7 @@ struct DetailView: View {
                 .offset(x: 150, y: 20)
                                                 .font(.system(size: 40))
                 
+                
 
                 
             }
@@ -223,7 +226,19 @@ struct DetailView: View {
                 .padding(.top, 5)
             Text(event.datetime_local)
             Spacer()
-            
+            if saveArray.contains(event.id) {
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            Image(systemName: "pencil")
+                        }
+            } else {
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            Image(systemName: "pencil.slash")
+                        }
+            }
         }
     }
 }
