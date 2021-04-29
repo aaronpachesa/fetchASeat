@@ -42,7 +42,6 @@ struct Huge: Codable {
 let userDefaults = UserDefaults.standard
 var saveArray: [Int] = userDefaults.object(forKey: "saveArray") as? [Int] ?? []
 
-
 //MainView
 struct ContentView: View {
     @State private var isEditing = false
@@ -66,15 +65,11 @@ struct ContentView: View {
                 
                 TextField("Search events", text: $searchText)
                     .onChange(of: searchText) { newValue in
-                        
                         loadData()
-                        
                     }
-                    
                     .alert(isPresented: $notFoundAlert) {
                         Alert(title: Text("We couldn't find that 🥺"), message: Text("Please try again"), dismissButton: .default(Text("Okay")))
                     }
-                    
                     .frame(width: 200)
                     .padding(7)
                     .padding(.horizontal, 25)
@@ -87,7 +82,6 @@ struct ContentView: View {
                                 .foregroundColor(.gray)
                                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading, 8)
-                            
                             if isEditing {
                                 Button(action: {
                                     self.searchText = ""
@@ -121,12 +115,14 @@ struct ContentView: View {
                 
                 List(events, id: \.id) { event in
                     NavigationLink(destination: DetailView(event: event)) {
+                        
                         VStack {
+                            
                             ZStack {
+                                
                                 Image(systemName: "questionmark")
                                     .data(url: URL(string: "\(event.performers[0].image)")!)
                                     .aspectRatio(contentMode: .fit)
-                                
                                 if saveArray.contains(event.id) {
                                     Image(systemName: "heart.fill")
                                         .offset(x: 150, y: -100)
@@ -137,49 +133,38 @@ struct ContentView: View {
                                         .offset(x: 150, y: -100)
                                         .font(.system(size: 40))
                                         .foregroundColor(.red)
-                                    
                                 }
-                                //                                saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
-                                //                                    .offset(x: 150, y: 20)
-                                //                                    .font(.system(size: 40))
-                                
                             }
-                            
                             
                             Text(event.short_title)
                                 .font(.headline)
+                            
                             Spacer()
+                            
                             Spacer()
+                            
                         }
                     }
-                    
                 }
                 .onAppear() {
-                    print("yess?")
                     loadData()
                 }
                 .navigationTitle("")
                 .navigationBarHidden(true)
-                
             }
-            
-            
         }
     }
     
     func loadData() {
         guard let url = URL(string: "https://api.seatgeek.com/2/events?q=\(searchText)&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2") else {
             print("Invalid URL")
-            
             return
         }
         print(url)
         let request = URLRequest(url: url)
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-                print("b")
                 if let decodedResponse = try? JSONDecoder().decode(Welcome.self, from: data) {
-                    print("c")
                     DispatchQueue.main.async {
                         self.events = decodedResponse.events
                     }
@@ -188,74 +173,6 @@ struct ContentView: View {
             }
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
         }.resume()
-    }
-}
-
-struct DetailView: View {
-    @Environment(\.presentationMode) var presentationMode
-    @AppStorage("easterEggCount") var easterEggCount: Int = 0
-    @State private var firstEasterEggAlert = false
-    @State private var secondEasterEggAlert = false
-    @State private var thirdEasterEggAlert = false
-    @State private var saveFill = false
-    var event: Event
-    var body: some View {
-        VStack {
-            ZStack(alignment: .top) {
-                Image(systemName: "questionmark")
-                    .data(url: URL(string: "\(event.performers[0].images.huge)")!)
-                    .aspectRatio(contentMode: .fit)
-                    .alert(isPresented: $firstEasterEggAlert) {
-                        Alert(title: Text("Nothing to see here"), dismissButton: .default(Text("Okay")))
-                    }
-                Button(action: {
-                    if saveArray.contains(event.id) {
-                        print("Save button was tapped")
-                        saveArray.removeAll(where: { $0 == event.id })
-                        userDefaults.set(saveArray, forKey: "saveArray")
-                        print(saveArray)
-                        presentationMode.wrappedValue.dismiss()
-                    } else {
-                        print("Save button was tapped")
-                        saveArray.append(event.id)
-                        userDefaults.set(saveArray, forKey: "saveArray")
-                        print(saveArray)
-                        presentationMode.wrappedValue.dismiss()
-                        
-                    }
-                }) {
-                    saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
-                }
-                .offset(x: 150, y: 20)
-                .font(.system(size: 40))
-                .alert(isPresented: $secondEasterEggAlert) {
-                    Alert(title: Text("Please don't tap this button again"), dismissButton: .default(Text("Okay")))
-                }
-            }
-            Text(event.venue.display_location)
-                .padding(.top, 5)
-                .alert(isPresented: $thirdEasterEggAlert) {
-                    Alert(title: Text("Your found my easter egg! -Aaron Pachesa"), message: Text("🥚"), dismissButton: .default(Text("Okay")))
-                }
-            Text(event.datetime_local)
-            Spacer()
-            Button {
-                if easterEggCount == 0 {
-                    firstEasterEggAlert.toggle()
-                } else if easterEggCount == 1 {
-                    secondEasterEggAlert.toggle()
-                } else if easterEggCount == 2 {
-                    thirdEasterEggAlert.toggle()
-                    easterEggCount = -1
-                }
-                easterEggCount += 1
-                presentationMode.wrappedValue.dismiss()
-                
-            } label: {
-                Image(systemName: "key")
-            }
-            
-        }
     }
 }
 
