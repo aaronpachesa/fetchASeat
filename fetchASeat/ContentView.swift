@@ -5,14 +5,14 @@
 //  Created by Aaron Pachesa on 4/26/21.
 //
 
-//Notes:
-//Client ID:    client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2
-// Your app secret is "9614158889724b1d683b95cd91d776ca4af61453cd1d89d0a02959e42db0645b" - copy now as it can't be retrieved later.
+//SeatGeekAPI Notes:
+//Client ID: client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2
+// Your app secret is "9614158889724b1d683b95cd91d776ca4af61453cd1d89d0a02959e42db0645b"
 //https://api.seatgeek.com/2/events?q=boston+celtics&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2
-//Football
 
 import SwiftUI
 
+//Model
 struct Welcome: Codable {
     let events: [Event]
 }
@@ -38,22 +38,23 @@ struct Huge: Codable {
     let huge: String
 }
 
-//var saveArray = [Int]()
+//UserDefaults set up
 let userDefaults = UserDefaults.standard
 var saveArray: [Int] = userDefaults.object(forKey: "saveArray") as? [Int] ?? []
-//@AppStorage("easterEggCount") var username: String = "easterEggCount"
 
+
+//MainView
 struct ContentView: View {
     @State private var isEditing = false
     @State private var searchText = ""
     @State var events = [Event]()
     @State private var notFoundAlert = false
-    @Environment(\.presentationMode) var presentationMode
     
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack {
-            //            Text("\(saveArray[0])")
+            
             Text("Fetch-a-🪑")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
@@ -62,16 +63,13 @@ struct ContentView: View {
                 }
             
             HStack {
-//                Button("do it") {
-//                    loadData()
-//                }
                 
                 TextField("Search events", text: $searchText)
-                                        .onChange(of: searchText) { newValue in
-                                            
-                                                loadData()
-                                            
-                                                    }
+                    .onChange(of: searchText) { newValue in
+                        
+                        loadData()
+                        
+                    }
                     
                     .alert(isPresented: $notFoundAlert) {
                         Alert(title: Text("We couldn't find that 🥺"), message: Text("Please try again"), dismissButton: .default(Text("Okay")))
@@ -128,23 +126,23 @@ struct ContentView: View {
                                 Image(systemName: "questionmark")
                                     .data(url: URL(string: "\(event.performers[0].image)")!)
                                     .aspectRatio(contentMode: .fit)
-
+                                
                                 if saveArray.contains(event.id) {
                                     Image(systemName: "heart.fill")
                                         .offset(x: 150, y: -100)
-                                                                            .font(.system(size: 40))
+                                        .font(.system(size: 40))
                                         .foregroundColor(.red)
                                 } else {
                                     Image(systemName: "heart")
                                         .offset(x: 150, y: -100)
-                                                                            .font(.system(size: 40))
+                                        .font(.system(size: 40))
                                         .foregroundColor(.red)
                                     
                                 }
-//                                saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
-//                                    .offset(x: 150, y: 20)
-//                                    .font(.system(size: 40))
-
+                                //                                saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
+                                //                                    .offset(x: 150, y: 20)
+                                //                                    .font(.system(size: 40))
+                                
                             }
                             
                             
@@ -154,7 +152,7 @@ struct ContentView: View {
                             Spacer()
                         }
                     }
-
+                    
                 }
                 .onAppear() {
                     print("yess?")
@@ -162,7 +160,7 @@ struct ContentView: View {
                 }
                 .navigationTitle("")
                 .navigationBarHidden(true)
-
+                
             }
             
             
@@ -252,7 +250,7 @@ struct DetailView: View {
                 }
                 easterEggCount += 1
                 presentationMode.wrappedValue.dismiss()
-
+                
             } label: {
                 Image(systemName: "key")
             }
