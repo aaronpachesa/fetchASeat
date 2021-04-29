@@ -47,7 +47,6 @@ struct ContentView: View {
     @State private var isEditing = false
     @State private var searchText = ""
     @State var events = [Event]()
-    @State private var notFoundAlert = false
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -66,9 +65,6 @@ struct ContentView: View {
                 TextField("Search events", text: $searchText)
                     .onChange(of: searchText) { newValue in
                         loadData()
-                    }
-                    .alert(isPresented: $notFoundAlert) {
-                        Alert(title: Text("We couldn't find that 🥺"), message: Text("Please try again"), dismissButton: .default(Text("Okay")))
                     }
                     .frame(width: 200)
                     .padding(7)
