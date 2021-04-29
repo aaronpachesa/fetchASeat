@@ -6,7 +6,7 @@ This app calls to the SeatGeek API and in effect allows you to search real live 
 
 It features URL Session, JSON decoding, local persistence of favorites, List, NavigationView, a DetailView, small and large photos, plus my first Easter Egg.
 
-It uses SwiftUI, is Cocoapod-free and was made in Brooklyn!
+It uses SwiftUI, is cocoapod-free and was made in Brooklyn!
 
 You've got to run it to believe it!
 
