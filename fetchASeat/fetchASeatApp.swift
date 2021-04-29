@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//test
 @main
 struct fetchASeatApp: App {
     var body: some Scene {
