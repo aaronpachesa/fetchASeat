@@ -147,6 +147,9 @@ struct ContentView: View {
                         }
                     }
                 }
+                .onAppear() {
+                    loadData()
+                }
                 .navigationTitle("")
                 .navigationBarHidden(true)
             }
