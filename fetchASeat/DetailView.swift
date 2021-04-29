@@ -15,7 +15,6 @@ struct DetailView: View {
     @State private var firstEasterEggAlert = false
     @State private var secondEasterEggAlert = false
     @State private var thirdEasterEggAlert = false
-    @State private var saveFill = false
     
     var event: Event
     
@@ -56,14 +55,15 @@ struct DetailView: View {
                     Alert(title: Text("Please don't tap this button again"), dismissButton: .default(Text("Okay")))
                 }
             }
+            Text("\(formatDate(input: event.datetime_local))")
+            Text(event.datetime_local)
+
             
             Text(event.venue.display_location)
                 .padding(.top, 5)
                 .alert(isPresented: $thirdEasterEggAlert) {
                     Alert(title: Text("Your found my easter egg! -Aaron Pachesa"), message: Text("🥚"), dismissButton: .default(Text("Okay")))
                 }
-            
-            Text(event.datetime_local)
             
             Spacer()
             
@@ -83,5 +83,22 @@ struct DetailView: View {
                 Image(systemName: "key")
             }
         }
+    }
+    
+    func formatDate(input: String) -> Date {
+        print(input)
+
+        //going from string to date
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss"
+        let date = formatter.date(from: input) ?? Date()
+        //going from date to string
+//        let formatter2 = DateFormatter
+//        formatter2.
+        return date
+        
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "HH:mm E, d MMM y"
+//        return formatter.date(from: input) ?? Date()
     }
 }
