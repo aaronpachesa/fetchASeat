@@ -138,6 +138,7 @@ struct ContentView: View {
                             
                             Text(event.short_title)
                                 .font(.headline)
+                                .multilineTextAlignment(.center)
                             
                             Spacer()
                             
@@ -145,9 +146,6 @@ struct ContentView: View {
                             
                         }
                     }
-                }
-                .onAppear() {
-                    loadData()
                 }
                 .navigationTitle("")
                 .navigationBarHidden(true)

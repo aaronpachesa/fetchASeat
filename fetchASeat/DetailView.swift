@@ -59,7 +59,7 @@ struct DetailView: View {
             Text(event.short_title)
                 .font(.title).bold()
                 .padding(.bottom, 3)
-                .frame(alignment: .center)
+                .multilineTextAlignment(.center)
             
             Text("\(formatDate(input: event.datetime_local))")
             
