@@ -55,12 +55,15 @@ struct DetailView: View {
                     Alert(title: Text("Please don't tap this button again"), dismissButton: .default(Text("Okay")))
                 }
             }
+            
+            Text(event.short_title)
+                .font(.title).bold()
+                .padding(.bottom, 3)
+                .frame(alignment: .center)
+            
             Text("\(formatDate(input: event.datetime_local))")
-            Text(event.datetime_local)
-
             
             Text(event.venue.display_location)
-                .padding(.top, 5)
                 .alert(isPresented: $thirdEasterEggAlert) {
                     Alert(title: Text("Your found my easter egg! -Aaron Pachesa"), message: Text("🥚"), dismissButton: .default(Text("Okay")))
                 }
@@ -85,20 +88,17 @@ struct DetailView: View {
         }
     }
     
-    func formatDate(input: String) -> Date {
-        print(input)
-
+    func formatDate(input: String) -> String {
+        
         //going from string to date
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss"
         let date = formatter.date(from: input) ?? Date()
-        //going from date to string
-//        let formatter2 = DateFormatter
-//        formatter2.
-        return date
         
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "HH:mm E, d MMM y"
-//        return formatter.date(from: input) ?? Date()
+        //going from date to string
+        let formatter2 = DateFormatter()
+        formatter2.dateFormat = "MMM d 'at' h:mma"
+        
+        return formatter2.string(from: date)
     }
 }
