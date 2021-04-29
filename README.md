@@ -2,6 +2,8 @@
 
 Welcome to the Fetch-a-Seat experience!
 
+I have included: URL Session, JSON decoding, Unit tests, 
+
 1.) Unit tests
 2.) Local Persistence of favorites
 3.) Easter Egg (a timely coincidence)
