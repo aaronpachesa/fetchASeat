@@ -2,9 +2,10 @@
 
 Welcome to the Fetch-a-Seat experience!
 
-I have included: URL Session, JSON decoding, Unit tests, 
+This app calls to the SeatGeek API and in effect allows you to search real live events happening now (please attend these events safely and follow all health guidelines)!
 
-1.) Unit tests
+I have included: URL Session, JSON decoding, 
+
 2.) Local Persistence of favorites
 3.) Easter Egg (a timely coincidence)
 4.) List
