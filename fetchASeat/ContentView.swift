@@ -153,7 +153,7 @@ struct ContentView: View {
     }
     
     func loadData() {
-        guard let url = URL(string: "https://api.seatgeek.com/2/events?q=\(searchText)&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2") else {
+        guard let url = URL(string: "https://api.seatgeek.com/2/events?q=\(loadSearchText(input: searchText))&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2") else {
             print("Invalid URL")
             return
         }
@@ -170,6 +170,10 @@ struct ContentView: View {
             }
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
         }.resume()
+    }
+    
+    func loadSearchText(input: String) -> String {
+        return input.replacingOccurrences(of: " ", with: "+")
     }
 }
 
