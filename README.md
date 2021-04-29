@@ -2,7 +2,7 @@
 
 Welcome to the Fetch-a-Seat experience!
 
-This app calls to the SeatGeek API and in effect allows you to search real live events happening now (please attend these events safely and follow all health guidelines)!
+This app calls to the SeatGeek API and in effect allows you to search real live events happening now (please attend these events safely and follow all local health guidelines)!
 
 I have included: URL Session, JSON decoding, 
 
@@ -12,6 +12,7 @@ I have included: URL Session, JSON decoding,
 5.) NavigationView
 6.) DetailView
 7.) API pulldown from SeatGeek
+8.) Small photos (List) and large photos (DetailView)
 
 You've got to run it to believe it!
 
