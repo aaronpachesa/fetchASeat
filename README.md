@@ -11,5 +11,4 @@ It uses SwiftUI, is cocoapod-free and was made in Brooklyn!
 You've got to run it to believe it!
 
 Thanks for the consideration!
-
-<img width="456" alt="Screen Shot 2021-04-29 at 8 02 59 PM" src="https://user-images.githubusercontent.com/37166748/116632811-fa1caf00-a925-11eb-9283-5efe95c7e0e8.png"><img width="458" alt="Screen Shot 2021-04-29 at 2 26 46 PM" src="https://user-images.githubusercontent.com/37166748/116602442-bd3ac300-a8f9-11eb-851a-64d869f306da.png">
+<img width="456" alt="Screen Shot 2021-04-29 at 7 53 22 PM" src="https://user-images.githubusercontent.com/37166748/116633004-6ac3cb80-a926-11eb-937c-8622e6eb8c9c.png"><img width="456" alt="Screen Shot 2021-04-29 at 8 02 59 PM" src="https://user-images.githubusercontent.com/37166748/116632811-fa1caf00-a925-11eb-9283-5efe95c7e0e8.png">
