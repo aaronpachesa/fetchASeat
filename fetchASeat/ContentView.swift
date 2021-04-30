@@ -44,9 +44,12 @@ var saveArray: [Int] = userDefaults.object(forKey: "saveArray") as? [Int] ?? []
 
 //MainView
 struct ContentView: View {
+    
     @State private var isEditing = false
     @State private var searchText = ""
     @State var events = [Event]()
+
+    @AppStorage("firstStartUp") var firstStartUp: Bool = true
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -173,7 +176,11 @@ struct ContentView: View {
     }
     
     func loadSearchText(input: String) -> String {
-        return input.replacingOccurrences(of: " ", with: "+")
+        if input == " " {
+            return "did i get the job?"
+        } else {
+            return input.replacingOccurrences(of: " ", with: "+")
+        }
     }
 }
 
