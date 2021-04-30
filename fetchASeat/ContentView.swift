@@ -176,7 +176,8 @@ struct ContentView: View {
     }
     
     func loadSearchText(input: String) -> String {
-        if input == " " {
+        if firstStartUp {
+            firstStartUp = false
             return "did i get the job? 🥺"
         } else {
             return input.replacingOccurrences(of: " ", with: "+")
