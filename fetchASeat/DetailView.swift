@@ -65,7 +65,7 @@ struct DetailView: View {
             
             Text(event.venue.display_location)
                 .alert(isPresented: $thirdEasterEggAlert) {
-                    Alert(title: Text("Your found my easter egg! -Aaron Pachesa"), message: Text("🥚"), dismissButton: .default(Text("Okay")))
+                    Alert(title: Text("You found my easter egg! -Aaron Pachesa"), message: Text("🥚"), dismissButton: .default(Text("Okay")))
                 }
             
             Spacer()
