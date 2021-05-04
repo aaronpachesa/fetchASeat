@@ -42,8 +42,8 @@ struct Huge: Codable {
 let userDefaults = UserDefaults.standard
 var saveArray: [Int] = userDefaults.object(forKey: "saveArray") as? [Int] ?? []
 
-//MainView
-struct ContentView: View {
+//View
+struct MainView: View {
     
     @State private var isEditing = false
     @State private var searchText = ""
@@ -198,6 +198,6 @@ extension Image {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }
