@@ -32,22 +32,22 @@ struct DetailView: View {
                     }
                 
                 Button(action: {
-                    if saveArray.contains(event.id) {
+                    if savedFavorites.contains(event.id) {
                         print("Save button was tapped")
-                        saveArray.removeAll(where: { $0 == event.id })
-                        userDefaults.set(saveArray, forKey: "saveArray")
-                        print(saveArray)
+                        savedFavorites.removeAll(where: { $0 == event.id })
+                        userDefaults.set(savedFavorites, forKey: "saveArray")
+                        print(savedFavorites)
                         presentationMode.wrappedValue.dismiss()
                     } else {
                         print("Save button was tapped")
-                        saveArray.append(event.id)
-                        userDefaults.set(saveArray, forKey: "saveArray")
-                        print(saveArray)
+                        savedFavorites.append(event.id)
+                        userDefaults.set(savedFavorites, forKey: "saveArray")
+                        print(savedFavorites)
                         presentationMode.wrappedValue.dismiss()
                         
                     }
                 }) {
-                    saveArray.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
+                    savedFavorites.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
                 }
                 .offset(x: 150, y: 20)
                 .font(.system(size: 40))

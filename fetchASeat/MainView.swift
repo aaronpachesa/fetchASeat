@@ -12,40 +12,14 @@
 
 import SwiftUI
 
-//Model
-struct Welcome: Codable {
-    let events: [Event]
-}
-
-struct Event: Codable, Identifiable {
-    let id: Int
-    let datetime_local: String
-    let short_title: String
-    let venue: Venue
-    let performers: [Performer]
-}
-
-struct Venue: Codable {
-    let display_location: String
-}
-
-struct Performer: Codable {
-    let image: String
-    let images: Huge
-}
-
-struct Huge: Codable {
-    let huge: String
-}
-
 //UserDefaults set up
 let userDefaults = UserDefaults.standard
-var saveArray: [Int] = userDefaults.object(forKey: "saveArray") as? [Int] ?? []
+var savedFavorites: [Int] = userDefaults.object(forKey: "savedFavorites") as? [Int] ?? []
 
 //View
 struct MainView: View {
     
-    @State private var isEditing = false
+    @State private var isEditingSearchText = false
     @State private var searchText = ""
     @State var events = [Event]()
 
@@ -60,7 +34,7 @@ struct MainView: View {
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                    print(saveArray)
+                    print(savedFavorites)
                 }
             
             HStack {
@@ -81,7 +55,7 @@ struct MainView: View {
                                 .foregroundColor(.gray)
                                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading, 8)
-                            if isEditing {
+                            if isEditingSearchText {
                                 Button(action: {
                                     self.searchText = ""
                                 }) {
@@ -94,11 +68,11 @@ struct MainView: View {
                     )
                     .padding(.horizontal, 10)
                     .onTapGesture {
-                        self.isEditing = true
+                        self.isEditingSearchText = true
                     }
-                if isEditing {
+                if isEditingSearchText {
                     Button(action: {
-                        self.isEditing = false
+                        self.isEditingSearchText = false
                         self.searchText = ""
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }) {
@@ -122,7 +96,7 @@ struct MainView: View {
                                 Image(systemName: "questionmark")
                                     .data(url: URL(string: "\(event.performers[0].image)")!)
                                     .aspectRatio(contentMode: .fit)
-                                if saveArray.contains(event.id) {
+                                if savedFavorites.contains(event.id) {
                                     Image(systemName: "heart.fill")
                                         .offset(x: 150, y: -100)
                                         .font(.system(size: 40))
