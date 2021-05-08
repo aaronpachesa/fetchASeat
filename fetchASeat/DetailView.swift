@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailView: View {
     
     @Environment(\.presentationMode) var presentationMode
+    
     @AppStorage("easterEggCount") var easterEggCount: Int = 0
     
     @State private var firstEasterEggAlert = false

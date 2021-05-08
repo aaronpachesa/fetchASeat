@@ -62,10 +62,10 @@
 				5246121426372CE200481DE3 /* MainView.swift */,
 				526E34D0263AFF0600EF3D3F /* DetailView.swift */,
 				5292B63C2641F95000FA59AA /* ViewModel.swift */,
+				5292B63E26459BC400FA59AA /* Model.swift */,
 				5246121626372CE200481DE3 /* Assets.xcassets */,
 				5246121B26372CE200481DE3 /* Info.plist */,
 				5246121826372CE200481DE3 /* Preview Content */,
-				5292B63E26459BC400FA59AA /* Model.swift */,
 			);
 			path = fetchASeat;
 			sourceTree = "<group>";

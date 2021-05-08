@@ -20,16 +20,18 @@ var savedFavorites: [Int] = userDefaults.object(forKey: "savedFavorites") as? [I
 struct MainView: View {
     
     @State private var isEditingSearchText = false
-    @State private var searchText = ""
-    @State var events = [Event]()
-
-    @AppStorage("firstStartUp") var firstStartUp: Bool = true
+//    @State private var searchText = ""
+    
+//    @State var events = [Event]()
+    @ObservedObject var eventViewModel = EventViewModel()
+    
+//    @AppStorage("isFirstStartUp") var isFirstStartUp: Bool = true
     
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack {
-            
+            //Title
             Text("Fetch-a-🪑")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
@@ -38,10 +40,13 @@ struct MainView: View {
                 }
             
             HStack {
-                
-                TextField("Search events", text: $searchText)
-                    .onChange(of: searchText) { newValue in
-                        loadData()
+                //Custom search bar
+                //TO DO: place search bar in different file...
+                TextField("Search events", text: $eventViewModel.searchText)
+                    .onChange(of: eventViewModel.searchText) { newValue in
+//                        loadData()
+                        eventViewModel.loadItLoadItGood()
+
                     }
                     .frame(width: 200)
                     .padding(7)
@@ -57,7 +62,7 @@ struct MainView: View {
                                 .padding(.leading, 8)
                             if isEditingSearchText {
                                 Button(action: {
-                                    self.searchText = ""
+                                    eventViewModel.searchText = ""
                                 }) {
                                     Image(systemName: "multiply.circle.fill")
                                         .foregroundColor(.gray)
@@ -72,8 +77,8 @@ struct MainView: View {
                     }
                 if isEditingSearchText {
                     Button(action: {
-                        self.isEditingSearchText = false
-                        self.searchText = ""
+                        isEditingSearchText = false
+                        eventViewModel.searchText = ""
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }) {
                         Text("Cancel")
@@ -83,10 +88,10 @@ struct MainView: View {
                     .animation(.default)
                 }
             }
-            
+            //Navi and list
             NavigationView {
                 
-                List(events, id: \.id) { event in
+                List(eventViewModel.events, id: \.id) { event in
                     NavigationLink(destination: DetailView(event: event)) {
                         
                         VStack {
@@ -121,7 +126,8 @@ struct MainView: View {
                     }
                 }
                 .onAppear() {
-                    loadData()
+//                    loadData()
+                    eventViewModel.loadItLoadItGood()
                 }
                 .navigationTitle("")
                 .navigationBarHidden(true)
@@ -129,34 +135,34 @@ struct MainView: View {
         }
     }
     
-    func loadData() {
-        guard let url = URL(string: "https://api.seatgeek.com/2/events?q=\(loadSearchText(input: searchText))&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2") else {
-            print("Invalid URL")
-            return
-        }
-        print(url)
-        let request = URLRequest(url: url)
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
-                if let decodedResponse = try? JSONDecoder().decode(Welcome.self, from: data) {
-                    DispatchQueue.main.async {
-                        self.events = decodedResponse.events
-                    }
-                    return
-                }
-            }
-            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
-        }.resume()
-    }
+//    func loadData() {
+//        guard let url = URL(string: "https://api.seatgeek.com/2/events?q=\(loadSearchText(input: searchText))&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2") else {
+//            print("Invalid URL")
+//            return
+//        }
+//        print(url)
+//        let request = URLRequest(url: url)
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            if let data = data {
+//                if let decodedResponse = try? JSONDecoder().decode(Welcome.self, from: data) {
+//                    DispatchQueue.main.async {
+//                        self.events = decodedResponse.events
+//                    }
+//                    return
+//                }
+//            }
+//            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
+//        }.resume()
+//    }
     
-    func loadSearchText(input: String) -> String {
-        if firstStartUp {
-            firstStartUp = false
-            return "did i get the job? 🥺"
-        } else {
-            return input.replacingOccurrences(of: " ", with: "+")
-        }
-    }
+//    func loadSearchText(input: String) -> String {
+//        if isFirstStartUp {
+//            isFirstStartUp = false
+//            return "did i get the job? 🥺"
+//        } else {
+//            return input.replacingOccurrences(of: " ", with: "+")
+//        }
+//    }
 }
 
 extension Image {
