@@ -5,28 +5,15 @@
 //  Created by Aaron Pachesa on 4/26/21.
 //
 
-//SeatGeekAPI Notes:
-//Client ID: client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2
-// Your app secret is "9614158889724b1d683b95cd91d776ca4af61453cd1d89d0a02959e42db0645b"
-//https://api.seatgeek.com/2/events?q=boston+celtics&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2
-
 import SwiftUI
-
-//UserDefaults set up
-let userDefaults = UserDefaults.standard
-var savedFavorites: [Int] = userDefaults.object(forKey: "savedFavorites") as? [Int] ?? []
 
 //View
 struct MainView: View {
     
     @State private var isEditingSearchText = false
-//    @State private var searchText = ""
     
-//    @State var events = [Event]()
     @ObservedObject var eventViewModel = EventViewModel()
-    
-//    @AppStorage("isFirstStartUp") var isFirstStartUp: Bool = true
-    
+        
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -35,18 +22,12 @@ struct MainView: View {
             Text("Fetch-a-🪑")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                    print(savedFavorites)
-                }
             
             HStack {
-                //Custom search bar
-                //TO DO: place search bar in different file...
+                //Custom Search Bar
                 TextField("Search events", text: $eventViewModel.searchText)
                     .onChange(of: eventViewModel.searchText) { newValue in
-//                        loadData()
-                        eventViewModel.loadItLoadItGood()
-
+                        eventViewModel.loadIt()
                     }
                     .frame(width: 200)
                     .padding(7)
@@ -56,10 +37,12 @@ struct MainView: View {
                     .cornerRadius(8)
                     .overlay(
                         HStack {
+                            //Magnifying Glass
                             Image(systemName: "magnifyingglass")
                                 .foregroundColor(.gray)
                                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading, 8)
+                            //"X" Button
                             if isEditingSearchText {
                                 Button(action: {
                                     eventViewModel.searchText = ""
@@ -75,6 +58,7 @@ struct MainView: View {
                     .onTapGesture {
                         self.isEditingSearchText = true
                     }
+                //Cancel Button
                 if isEditingSearchText {
                     Button(action: {
                         isEditingSearchText = false
@@ -97,10 +81,11 @@ struct MainView: View {
                         VStack {
                             
                             ZStack {
-                                
+                                //"Small Image"
                                 Image(systemName: "questionmark")
                                     .data(url: URL(string: "\(event.performers[0].image)")!)
                                     .aspectRatio(contentMode: .fit)
+                                //Save Indication
                                 if savedFavorites.contains(event.id) {
                                     Image(systemName: "heart.fill")
                                         .offset(x: 150, y: -100)
@@ -113,7 +98,7 @@ struct MainView: View {
                                         .foregroundColor(.red)
                                 }
                             }
-                            
+                            //Title of Event
                             Text(event.short_title)
                                 .font(.headline)
                                 .multilineTextAlignment(.center)
@@ -126,8 +111,7 @@ struct MainView: View {
                     }
                 }
                 .onAppear() {
-//                    loadData()
-                    eventViewModel.loadItLoadItGood()
+                    eventViewModel.loadIt()
                     print(savedFavorites)
                 }
                 .navigationTitle("")
@@ -136,34 +120,6 @@ struct MainView: View {
         }
     }
     
-//    func loadData() {
-//        guard let url = URL(string: "https://api.seatgeek.com/2/events?q=\(loadSearchText(input: searchText))&client_id=MjE3OTI0OTh8MTYxOTQ2NTUxMC4zODk1NTY2") else {
-//            print("Invalid URL")
-//            return
-//        }
-//        print(url)
-//        let request = URLRequest(url: url)
-//        URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let data = data {
-//                if let decodedResponse = try? JSONDecoder().decode(Welcome.self, from: data) {
-//                    DispatchQueue.main.async {
-//                        self.events = decodedResponse.events
-//                    }
-//                    return
-//                }
-//            }
-//            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
-//        }.resume()
-//    }
-    
-//    func loadSearchText(input: String) -> String {
-//        if isFirstStartUp {
-//            isFirstStartUp = false
-//            return "did i get the job? 🥺"
-//        } else {
-//            return input.replacingOccurrences(of: " ", with: "+")
-//        }
-//    }
 }
 
 extension Image {
