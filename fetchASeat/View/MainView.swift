@@ -88,7 +88,7 @@ struct MainView: View {
                     .animation(.default)
                 }
             }
-            //Navi and list
+            //Navigation and List
             NavigationView {
                 
                 List(eventViewModel.events, id: \.id) { event in
@@ -128,6 +128,7 @@ struct MainView: View {
                 .onAppear() {
 //                    loadData()
                     eventViewModel.loadItLoadItGood()
+                    print(savedFavorites)
                 }
                 .navigationTitle("")
                 .navigationBarHidden(true)

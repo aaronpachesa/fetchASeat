@@ -36,13 +36,13 @@ struct DetailView: View {
                     if savedFavorites.contains(event.id) {
                         print("Save button was tapped")
                         savedFavorites.removeAll(where: { $0 == event.id })
-                        userDefaults.set(savedFavorites, forKey: "saveArray")
+                        userDefaults.set(savedFavorites, forKey: "savedFavorites")
                         print(savedFavorites)
                         presentationMode.wrappedValue.dismiss()
                     } else {
                         print("Save button was tapped")
                         savedFavorites.append(event.id)
-                        userDefaults.set(savedFavorites, forKey: "saveArray")
+                        userDefaults.set(savedFavorites, forKey: "savedFavorites")
                         print(savedFavorites)
                         presentationMode.wrappedValue.dismiss()
                         
