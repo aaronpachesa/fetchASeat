@@ -86,8 +86,8 @@
 		5292B640264715E200FA59AA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				526E34D0263AFF0600EF3D3F /* DetailView.swift */,
 				5246121426372CE200481DE3 /* MainView.swift */,
+				526E34D0263AFF0600EF3D3F /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

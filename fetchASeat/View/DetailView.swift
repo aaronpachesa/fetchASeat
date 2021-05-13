@@ -16,7 +16,7 @@ struct DetailView: View {
     @State private var firstEasterEggAlert = false
     @State private var secondEasterEggAlert = false
     @State private var thirdEasterEggAlert = false
-    
+    //Instance of Event
     var event: Event
     
     var body: some View {
@@ -24,28 +24,21 @@ struct DetailView: View {
         VStack {
             
             ZStack(alignment: .top) {
-                
+                //"Bigger" Image
                 Image(systemName: "questionmark")
                     .data(url: URL(string: "\(event.performers[0].images.huge)")!)
                     .aspectRatio(contentMode: .fit)
                     .alert(isPresented: $firstEasterEggAlert) {
                         Alert(title: Text("Nothing to see here"), dismissButton: .default(Text("Okay")))
                     }
-                
+                //Favorite Button
                 Button(action: {
                     if savedFavorites.contains(event.id) {
-                        print("Save button was tapped")
                         savedFavorites.removeAll(where: { $0 == event.id })
-                        userDefaults.set(savedFavorites, forKey: "savedFavorites")
-                        print(savedFavorites)
-                        presentationMode.wrappedValue.dismiss()
+                        savePrintAndDismiss()
                     } else {
-                        print("Save button was tapped")
                         savedFavorites.append(event.id)
-                        userDefaults.set(savedFavorites, forKey: "savedFavorites")
-                        print(savedFavorites)
-                        presentationMode.wrappedValue.dismiss()
-                        
+                        savePrintAndDismiss()
                     }
                 }) {
                     savedFavorites.contains(event.id) ? Image(systemName: "heart.fill") : Image(systemName: "heart")
@@ -56,32 +49,24 @@ struct DetailView: View {
                     Alert(title: Text("Please don't tap this button again"), dismissButton: .default(Text("Okay")))
                 }
             }
-            
+            //Event Title
             Text(event.short_title)
                 .font(.title).bold()
                 .padding(.bottom, 3)
                 .multilineTextAlignment(.center)
-            
+            //Date and Time of Event
             Text("\(formatDate(input: event.datetime_local))")
-            
+            //Event Location
             Text(event.venue.display_location)
                 .alert(isPresented: $thirdEasterEggAlert) {
                     Alert(title: Text("You found my easter egg! -Aaron Pachesa"), message: Text("🥚"), dismissButton: .default(Text("Okay")))
                 }
             
             Spacer()
-            
+            //Key Button
             Button {
-                if easterEggCount == 0 {
-                    firstEasterEggAlert.toggle()
-                } else if easterEggCount == 1 {
-                    secondEasterEggAlert.toggle()
-                } else if easterEggCount == 2 {
-                    thirdEasterEggAlert.toggle()
-                    easterEggCount = -1
-                }
-                easterEggCount += 1
-                presentationMode.wrappedValue.dismiss()
+                
+                keyButtonLogic()
                 
             } label: {
                 Image(systemName: "key")
@@ -102,4 +87,29 @@ struct DetailView: View {
         
         return formatter2.string(from: date)
     }
+    
+    func savePrintAndDismiss() {
+        
+        userDefaults.set(savedFavorites, forKey: "savedFavorites")
+        print(savedFavorites)
+        presentationMode.wrappedValue.dismiss()
+
+    }
+    
+    func keyButtonLogic() {
+        
+        if easterEggCount == 0 {
+            firstEasterEggAlert.toggle()
+        } else if easterEggCount == 1 {
+            secondEasterEggAlert.toggle()
+        } else if easterEggCount == 2 {
+            thirdEasterEggAlert.toggle()
+            easterEggCount = -1
+        }
+        easterEggCount += 1
+        
+        presentationMode.wrappedValue.dismiss()
+
+    }
+    
 }

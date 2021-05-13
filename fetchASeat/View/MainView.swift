@@ -85,7 +85,7 @@ struct MainView: View {
                                 Image(systemName: "questionmark")
                                     .data(url: URL(string: "\(event.performers[0].image)")!)
                                     .aspectRatio(contentMode: .fit)
-                                //Save Indication
+                                //Save Indicator Image
                                 if savedFavorites.contains(event.id) {
                                     Image(systemName: "heart.fill")
                                         .offset(x: 150, y: -100)
