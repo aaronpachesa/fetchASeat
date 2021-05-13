@@ -63,17 +63,17 @@ struct DetailView: View {
                 }
             
             Spacer()
-            //Key Button
+            //Easter Egg "Key" Button
             Button {
                 
-                keyButtonLogic()
+                easterEggButtonLogic()
                 
             } label: {
                 Image(systemName: "key")
             }
         }
     }
-    
+    //Could/should these functions be seperated out into it's on DetailView ViewModel?
     func formatDate(input: String) -> String {
         
         //going from string to date
@@ -96,8 +96,8 @@ struct DetailView: View {
 
     }
     
-    func keyButtonLogic() {
-        
+    func easterEggButtonLogic() {
+        //Toggles each easter egg alert by keeping a count
         if easterEggCount == 0 {
             firstEasterEggAlert.toggle()
         } else if easterEggCount == 1 {
@@ -106,6 +106,7 @@ struct DetailView: View {
             thirdEasterEggAlert.toggle()
             easterEggCount = -1
         }
+        
         easterEggCount += 1
         
         presentationMode.wrappedValue.dismiss()
