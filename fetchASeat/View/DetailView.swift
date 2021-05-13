@@ -73,7 +73,7 @@ struct DetailView: View {
             }
         }
     }
-    //Could/should these functions be seperated out into it's on DetailView ViewModel?
+    //Could/should these functions be seperated out into it's own DetailView ViewModel? YES //TODO: Build it.
     func formatDate(input: String) -> String {
         
         //going from string to date
