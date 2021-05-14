@@ -38,7 +38,7 @@ struct DetailView: View {
                         savePrintAndDismiss()
                     } else {
                         savedFavorites.append(event.id)
-                        
+                        objects.append(SavedEvent(image: event.performers[0].image, id: event.id))
 //                        if let encoded = try? JSONEncoder().encode(event) {
 //                                UserDefaults.standard.set(encoded, forKey: "savedFavoriteObjects")
 //

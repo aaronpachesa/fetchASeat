@@ -32,3 +32,8 @@ struct Performer: Codable {
 struct Huge: Codable {
     let huge: String
 }
+
+struct SavedEvent: Codable {
+    let image: String
+    let id: Int
+}

@@ -127,64 +127,44 @@ struct MainView: View {
                 }
 //Favorites Tab
             VStack {
-                Text("Fetch-a-🪑")
+                Text("Fetch-a-♥️")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
-                
+                List(objects, id: \.id) { event in
+                    
+                        VStack {
+                            
+                            ZStack {
+                                //"Small Image"
+                                Image(systemName: "questionmark")
+                                    .loadPhoto(url: URL(string: "\(event.image)")!)
+                                    .aspectRatio(contentMode: .fit)
+                                
+                            }
+                            //Title of Event
+                            Text("\(event.id)")
+                                .font(.headline)
+                                .multilineTextAlignment(.center)
+                            
+                            Spacer()
+                            
+                            Spacer()
+                            
+                        }
+                    
+                }
+                .onAppear() {
+        //            eventViewModel.loadIt()
+                    print("saved favorites: \(savedFavorites)")
+                    print("saved favorite objects: \(savedFavoriteObjects)")
+                }
                 
             }
             
-            List(savedFavoriteObjects, id: \.id) { event in
-                
-                    VStack {
-                        
-                        ZStack {
-                            //"Small Image"
-                            Image(systemName: "questionmark")
-                                .loadPhoto(url: URL(string: "\(event.performers[0].image)")!)
-                                .aspectRatio(contentMode: .fit)
-                            //Save Indicator Image
-//                            if savedFavorites.contains(event.id) {
-//                                Image(systemName: "heart.fill")
-//                                    .offset(x: 150, y: -100)
-//                                    .font(.system(size: 40))
-//                                    .foregroundColor(.red)
-//                            } else {
-//                                Image(systemName: "heart")
-//                                    .offset(x: 150, y: -100)
-//                                    .font(.system(size: 40))
-//                                    .foregroundColor(.red)
-//                            }
-                        }
-                        //Title of Event
-                        Text(event.short_title)
-                            .font(.headline)
-                            .multilineTextAlignment(.center)
-                        
-                        Spacer()
-                        
-                        Spacer()
-                        
-                    }
-                
-            }
-            .onAppear() {
-    //            eventViewModel.loadIt()
-                print("saved favorites: \(savedFavorites)")
-                print("saved favorite objects: \(savedFavoriteObjects)")
-            }
+
                 .tabItem {
                     Label("Favorites", systemImage: "square.and.pencil")
                 }
-        }
-        func convertBack(events: [Event]) -> [Event] {
-            if let savedPerson = defaults.object(forKey: "savedFavoriteObjects") as? Data {
-                let decoder = JSONDecoder()
-                if let loadedPerson = try? decoder.decode(Person.self, from: savedPerson) {
-                    print(loadedPerson.name)
-                }
-            }
-            return Event
         }
         
     }
