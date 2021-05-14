@@ -12,6 +12,7 @@ class EventViewModel: ObservableObject {
     @Published var events: [Event] = []
     @Published var isFirstStartUp: Bool = true
     @Published var searchText: String = ""
+    @Published var savedEvents = savedFavoriteObjects
     
     func loadIt() {
         

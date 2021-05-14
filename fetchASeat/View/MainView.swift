@@ -19,6 +19,7 @@ struct MainView: View {
     var body: some View {
         
         TabView {
+            //Search Tab
             VStack {
                 //Title
                 Text("Fetch-a-🪑")
@@ -123,10 +124,9 @@ struct MainView: View {
                 .tabItem {
                     Label("Find", systemImage: "list.dash")
                 }
-
-            List(eventViewModel.events, id: \.id) { event in
+//Favorites Tab
+            List(savedFavoriteObjects, id: \.id) { event in
                 
-                    
                     VStack {
                         
                         ZStack {
@@ -135,17 +135,17 @@ struct MainView: View {
                                 .loadPhoto(url: URL(string: "\(event.performers[0].image)")!)
                                 .aspectRatio(contentMode: .fit)
                             //Save Indicator Image
-                            if savedFavorites.contains(event.id) {
-                                Image(systemName: "heart.fill")
-                                    .offset(x: 150, y: -100)
-                                    .font(.system(size: 40))
-                                    .foregroundColor(.red)
-                            } else {
-                                Image(systemName: "heart")
-                                    .offset(x: 150, y: -100)
-                                    .font(.system(size: 40))
-                                    .foregroundColor(.red)
-                            }
+//                            if savedFavorites.contains(event.id) {
+//                                Image(systemName: "heart.fill")
+//                                    .offset(x: 150, y: -100)
+//                                    .font(.system(size: 40))
+//                                    .foregroundColor(.red)
+//                            } else {
+//                                Image(systemName: "heart")
+//                                    .offset(x: 150, y: -100)
+//                                    .font(.system(size: 40))
+//                                    .foregroundColor(.red)
+//                            }
                         }
                         //Title of Event
                         Text(event.short_title)
