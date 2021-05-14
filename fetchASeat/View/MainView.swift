@@ -10,11 +10,16 @@ import SwiftUI
 //View
 struct MainView: View {
     
+    let defaults = UserDefaults.standard
+    
     @State private var isEditingSearchText = false
     
     @ObservedObject var eventViewModel = EventViewModel()
         
     @Environment(\.presentationMode) var presentationMode
+    
+    @AppStorage("blackout") var blackout = "[SavedEvent]()"
+
     
     var body: some View {
         
@@ -115,6 +120,7 @@ struct MainView: View {
                     }
                     .onAppear() {
                         eventViewModel.loadIt()
+                        retrieveIt()
                         print("saved favorites: \(savedFavorites)")
                     }
                     .navigationTitle("")
@@ -155,6 +161,9 @@ struct MainView: View {
                 .onAppear() {
         //            eventViewModel.loadIt()
                     print("saved favorites: \(savedFavorites)")
+                    retrieveIt()
+                    
+                    
                 }
                 
             }
@@ -165,6 +174,16 @@ struct MainView: View {
                 }
         }
         
+    }
+    func retrieveIt() {
+        if let savedPerson = defaults.object(forKey: "SavedObjects") as? Data {
+            let decoder = JSONDecoder()
+            if let events = try? decoder.decode([SavedEvent].self, from: savedPerson) {
+                savedObjects = events
+                return
+            }
+        }
+
     }
     
 }

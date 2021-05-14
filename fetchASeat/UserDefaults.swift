@@ -12,3 +12,5 @@ let userDefaults = UserDefaults.standard
 var savedFavorites: [Int] = userDefaults.object(forKey: "savedFavorites") as? [Int] ?? []
 
 var savedObjects: [SavedEvent] =  []
+
+//var stored: Data = userDefaults.object(forKey: "stored") as? [SavedEvent] ?? []

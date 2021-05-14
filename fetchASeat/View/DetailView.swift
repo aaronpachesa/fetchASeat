@@ -39,7 +39,7 @@ struct DetailView: View {
                     } else {
                         savedFavorites.append(event.id)
                         savedObjects.append(SavedEvent(image: event.performers[0].image, id: event.id, short_title: event.short_title))
-                        
+                        saveIt()
                         savePrintAndDismiss()
                     }
                 }) {
@@ -75,15 +75,16 @@ struct DetailView: View {
             }
         }
     }
+    
     //Could this encode my favorites?
-    func saveIt(event: Event) {
-        let eventToSave = event
+    func saveIt() {
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(eventToSave) {
+        if let encoded = try? encoder.encode(savedObjects) {
             let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "savedFavoriteObjects")
+            defaults.set(encoded, forKey: "SavedObjects")
         }
     }
+    
     //Could/should these functions be seperated out into it's own DetailView ViewModel? YES //TODO: Build it.
     func formatDate(input: String) -> String {
         
