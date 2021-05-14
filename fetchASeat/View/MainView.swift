@@ -122,9 +122,14 @@ struct MainView: View {
                         }
                     }
                     .onAppear() {
-                        eventViewModel.loadIt()
-                        retrieveFaves()
-                        print("saved favorites: \(savedFavorites)")
+                        if eventViewModel.isFirstStartUp {
+                            print("hello developer")
+                        } else {
+                            eventViewModel.loadIt()
+                            retrieveFaves()
+                            print("saved favorites: \(savedFavorites)")
+                        }
+                        
                     }
                     .navigationTitle("")
                     .navigationBarHidden(true)
