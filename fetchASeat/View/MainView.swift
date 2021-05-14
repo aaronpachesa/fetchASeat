@@ -126,6 +126,14 @@ struct MainView: View {
                     Label("Find", systemImage: "list.dash")
                 }
 //Favorites Tab
+            VStack {
+                Text("Fetch-a-🪑")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                
+                
+            }
+            
             List(savedFavoriteObjects, id: \.id) { event in
                 
                     VStack {
@@ -168,6 +176,15 @@ struct MainView: View {
                 .tabItem {
                     Label("Favorites", systemImage: "square.and.pencil")
                 }
+        }
+        func convertBack(events: [Event]) -> [Event] {
+            if let savedPerson = defaults.object(forKey: "savedFavoriteObjects") as? Data {
+                let decoder = JSONDecoder()
+                if let loadedPerson = try? decoder.decode(Person.self, from: savedPerson) {
+                    print(loadedPerson.name)
+                }
+            }
+            return Event
         }
         
     }
