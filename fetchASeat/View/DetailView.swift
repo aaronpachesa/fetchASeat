@@ -26,7 +26,7 @@ struct DetailView: View {
             ZStack(alignment: .top) {
                 //"Bigger" Image
                 Image(systemName: "questionmark")
-                    .data(url: URL(string: "\(event.performers[0].images.huge)")!)
+                    .loadPhoto(url: URL(string: "\(event.performers[0].images.huge)")!)
                     .aspectRatio(contentMode: .fit)
                     .alert(isPresented: $firstEasterEggAlert) {
                         Alert(title: Text("Nothing to see here"), dismissButton: .default(Text("Okay")))

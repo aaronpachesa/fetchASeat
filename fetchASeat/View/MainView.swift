@@ -83,7 +83,7 @@ struct MainView: View {
                             ZStack {
                                 //"Small Image"
                                 Image(systemName: "questionmark")
-                                    .data(url: URL(string: "\(event.performers[0].image)")!)
+                                    .loadPhoto(url: URL(string: "\(event.performers[0].image)")!)
                                     .aspectRatio(contentMode: .fit)
                                 //Save Indicator Image
                                 if savedFavorites.contains(event.id) {
@@ -121,9 +121,9 @@ struct MainView: View {
     }
     
 }
-
+//Does not monitor state changes
 extension Image {
-    func data(url:URL) -> Self {
+    func loadPhoto(url:URL) -> Self {
         if let data = try? Data(contentsOf: url) {
             return Image(uiImage: UIImage(data: data)!)
                 .resizable()
