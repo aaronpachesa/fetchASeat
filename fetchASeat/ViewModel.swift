@@ -12,7 +12,6 @@ class EventViewModel: ObservableObject {
     @Published var events: [Event] = []
     @Published var isFirstStartUp: Bool = true
     @Published var searchText: String = ""
-//    @Published var savedEvents = savedFavoriteObjects
     
     func loadIt() {
         
@@ -42,7 +41,7 @@ class EventViewModel: ObservableObject {
         
         if isFirstStartUp {
             isFirstStartUp = false
-            return "did i get the job? 🥺"
+            return "i won't give up 😇"
         } else {
             return input.replacingOccurrences(of: " ", with: "+")
         }

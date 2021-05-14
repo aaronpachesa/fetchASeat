@@ -7,7 +7,7 @@
 
 import Foundation
 
-//Model
+//Model for Event
 struct Welcome: Codable {
     let events: [Event]
 }
@@ -33,7 +33,9 @@ struct Huge: Codable {
     let huge: String
 }
 
+//Model for SavedEvent
 struct SavedEvent: Codable {
     let image: String
     let id: Int
+    let short_title: String
 }

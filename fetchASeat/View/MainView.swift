@@ -116,7 +116,6 @@ struct MainView: View {
                     .onAppear() {
                         eventViewModel.loadIt()
                         print("saved favorites: \(savedFavorites)")
-                        print("saved favorite objects: \(savedFavoriteObjects)")
                     }
                     .navigationTitle("")
                     .navigationBarHidden(true)
@@ -130,7 +129,7 @@ struct MainView: View {
                 Text("Fetch-a-♥️")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
-                List(objects, id: \.id) { event in
+                List(savedObjects, id: \.id) { event in
                     
                         VStack {
                             
@@ -142,7 +141,7 @@ struct MainView: View {
                                 
                             }
                             //Title of Event
-                            Text("\(event.id)")
+                            Text("\(event.short_title)")
                                 .font(.headline)
                                 .multilineTextAlignment(.center)
                             
@@ -156,7 +155,6 @@ struct MainView: View {
                 .onAppear() {
         //            eventViewModel.loadIt()
                     print("saved favorites: \(savedFavorites)")
-                    print("saved favorite objects: \(savedFavoriteObjects)")
                 }
                 
             }

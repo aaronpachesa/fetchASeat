@@ -38,12 +38,8 @@ struct DetailView: View {
                         savePrintAndDismiss()
                     } else {
                         savedFavorites.append(event.id)
-                        objects.append(SavedEvent(image: event.performers[0].image, id: event.id))
-//                        if let encoded = try? JSONEncoder().encode(event) {
-//                                UserDefaults.standard.set(encoded, forKey: "savedFavoriteObjects")
-//
-//                            }
-saveIt(event: event)
+                        savedObjects.append(SavedEvent(image: event.performers[0].image, id: event.id, short_title: event.short_title))
+                        
                         savePrintAndDismiss()
                     }
                 }) {
@@ -79,7 +75,7 @@ saveIt(event: event)
             }
         }
     }
-    
+    //Could this encode my favorites?
     func saveIt(event: Event) {
         let eventToSave = event
         let encoder = JSONEncoder()
@@ -106,12 +102,10 @@ saveIt(event: event)
     func savePrintAndDismiss() {
         
         userDefaults.set(savedFavorites, forKey: "savedFavorites")
-        userDefaults.set(savedFavoriteObjects, forKey: "savedFavoriteObjects")
         print("saved favorites: \(savedFavorites)")
-        print("saved favorite objects: \(savedFavoriteObjects)")
         presentationMode.wrappedValue.dismiss()
         
-
+        
     }
     
     func easterEggButtonLogic() {
@@ -128,7 +122,7 @@ saveIt(event: event)
         easterEggCount += 1
         
         presentationMode.wrappedValue.dismiss()
-
+        
     }
     
 }
