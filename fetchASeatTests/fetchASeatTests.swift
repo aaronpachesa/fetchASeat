@@ -20,11 +20,15 @@ class loadTest: XCTestCase {
         
 //        let result = EVM.events
 //        let result = [Event]()
-        let result = MV.eventViewModel.events[0].id
+        var result = MV.eventViewModel.events.count
+        print("result is \(result)")
+        if result > 0 {
+            result = 1
+        }
         
         print(result)
         
-        XCTAssertEqual(result, as? Int)
+        XCTAssertEqual(result, 1)
     }
 
 }
