@@ -115,7 +115,8 @@ struct MainView: View {
                     }
                     .onAppear() {
                         eventViewModel.loadIt()
-                        print(savedFavorites)
+                        print("saved favorites: \(savedFavorites)")
+                        print("saved favorite objects: \(savedFavoriteObjects)")
                     }
                     .navigationTitle("")
                     .navigationBarHidden(true)
@@ -161,7 +162,8 @@ struct MainView: View {
             }
             .onAppear() {
     //            eventViewModel.loadIt()
-                print(savedFavorites)
+                print("saved favorites: \(savedFavorites)")
+                print("saved favorite objects: \(savedFavoriteObjects)")
             }
                 .tabItem {
                     Label("Favorites", systemImage: "square.and.pencil")

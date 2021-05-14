@@ -92,8 +92,10 @@ struct DetailView: View {
     func savePrintAndDismiss() {
         
         userDefaults.set(savedFavorites, forKey: "savedFavorites")
-        print(savedFavorites)
+        print("saved favorites: \(savedFavorites)")
+        print("saved favorite objects: \(savedFavoriteObjects)")
         presentationMode.wrappedValue.dismiss()
+        
 
     }
     
