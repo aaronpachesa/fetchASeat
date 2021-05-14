@@ -15,23 +15,23 @@ struct MainView: View {
     @State private var isEditingSearchText = false
     
     @ObservedObject var eventViewModel = EventViewModel()
-        
-    @Environment(\.presentationMode) var presentationMode
     
-    @AppStorage("blackout") var blackout = "[SavedEvent]()"
-
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         
         TabView {
+            
             //Search Tab
             VStack {
                 //Title
+                
                 Text("Fetch-a-🪑")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                 
                 HStack {
+                    
                     //Custom Search Bar
                     TextField("Search events", text: $eventViewModel.searchText)
                         .onChange(of: eventViewModel.searchText) { newValue in
@@ -45,6 +45,7 @@ struct MainView: View {
                         .cornerRadius(8)
                         .overlay(
                             HStack {
+                                
                                 //Magnifying Glass
                                 Image(systemName: "magnifyingglass")
                                     .foregroundColor(.gray)
@@ -66,6 +67,7 @@ struct MainView: View {
                         .onTapGesture {
                             self.isEditingSearchText = true
                         }
+                    
                     //Cancel Button
                     if isEditingSearchText {
                         Button(action: {
@@ -80,6 +82,7 @@ struct MainView: View {
                         .animation(.default)
                     }
                 }
+                
                 //Navigation and List
                 NavigationView {
                     
@@ -120,62 +123,58 @@ struct MainView: View {
                     }
                     .onAppear() {
                         eventViewModel.loadIt()
-                        retrieveIt()
+                        retrieveFaves()
                         print("saved favorites: \(savedFavorites)")
                     }
                     .navigationTitle("")
                     .navigationBarHidden(true)
                 }
             }
-                .tabItem {
-                    Label("Find", systemImage: "list.dash")
-                }
-//Favorites Tab
+            .tabItem {
+                Label("Search", systemImage: "magnifyingglass.circle.fill")
+            }
+            
+            //Favorites Tab
             VStack {
                 Text("Fetch-a-♥️")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                 List(savedObjects, id: \.id) { event in
                     
-                        VStack {
-                            
-                            ZStack {
-                                //"Small Image"
-                                Image(systemName: "questionmark")
-                                    .loadPhoto(url: URL(string: "\(event.image)")!)
-                                    .aspectRatio(contentMode: .fit)
-                                
-                            }
-                            //Title of Event
-                            Text("\(event.short_title)")
-                                .font(.headline)
-                                .multilineTextAlignment(.center)
-                            
-                            Spacer()
-                            
-                            Spacer()
+                    VStack {
+                        
+                        ZStack {
+                            //"Small Image"
+                            Image(systemName: "questionmark")
+                                .loadPhoto(url: URL(string: "\(event.image)")!)
+                                .aspectRatio(contentMode: .fit)
                             
                         }
+                        //Title of Event
+                        Text("\(event.short_title)")
+                            .font(.headline)
+                            .multilineTextAlignment(.center)
+                        
+                        Spacer()
+                        
+                        Spacer()
+                        
+                    }
                     
                 }
                 .onAppear() {
-        //            eventViewModel.loadIt()
                     print("saved favorites: \(savedFavorites)")
-                    retrieveIt()
-                    
-                    
                 }
-                
             }
             
-
-                .tabItem {
-                    Label("Favorites", systemImage: "square.and.pencil")
-                }
+            .tabItem {
+                Label("Favorites", systemImage: "bolt.heart.fill")
+            }
+            
         }
-        
     }
-    func retrieveIt() {
+    
+    func retrieveFaves() {
         if let savedPerson = defaults.object(forKey: "SavedObjects") as? Data {
             let decoder = JSONDecoder()
             if let events = try? decoder.decode([SavedEvent].self, from: savedPerson) {
@@ -183,10 +182,10 @@ struct MainView: View {
                 return
             }
         }
-
     }
     
 }
+
 //Does not monitor state changes
 extension Image {
     func loadPhoto(url:URL) -> Self {
@@ -196,11 +195,5 @@ extension Image {
         }
         return self
             .resizable()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
     }
 }

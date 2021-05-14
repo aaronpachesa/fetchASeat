@@ -34,7 +34,7 @@ struct Huge: Codable {
 }
 
 //Model for SavedEvent
-struct SavedEvent: Codable {
+struct SavedEvent: Codable, Equatable {
     let image: String
     let id: Int
     let short_title: String

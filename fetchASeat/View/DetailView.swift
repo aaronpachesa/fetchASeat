@@ -35,6 +35,8 @@ struct DetailView: View {
                 Button(action: {
                     if savedFavorites.contains(event.id) {
                         savedFavorites.removeAll(where: { $0 == event.id })
+                        savedObjects.removeAll(where: { $0 == SavedEvent(image: event.performers[0].image, id: event.id, short_title: event.short_title) })
+                        saveIt()
                         savePrintAndDismiss()
                     } else {
                         savedFavorites.append(event.id)
@@ -76,7 +78,7 @@ struct DetailView: View {
         }
     }
     
-    //Could this encode my favorites?
+    //Encodes my favorites to User Defaults
     func saveIt() {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(savedObjects) {
