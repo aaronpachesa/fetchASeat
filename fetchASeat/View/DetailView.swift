@@ -38,6 +38,7 @@ struct DetailView: View {
                         savePrintAndDismiss()
                     } else {
                         savedFavorites.append(event.id)
+                        savedFavoriteObjects.append(event)
                         savePrintAndDismiss()
                     }
                 }) {
