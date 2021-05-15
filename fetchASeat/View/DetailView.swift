@@ -40,6 +40,8 @@ struct DetailView: View {
                         savePrintAndDismiss()
                     } else {
                         savedFavorites.append(event.id)
+                        saveItHere.append(event)
+                        print("here: \(saveItHere)")
                         savedObjects.append(SavedEvent(image: event.performers[0].image, id: event.id, short_title: event.short_title))
                         saveIt()
                         savePrintAndDismiss()

@@ -14,3 +14,6 @@ var savedFavorites: [Int] = userDefaults.object(forKey: "savedFavorites") as? [I
 var savedObjects: [SavedEvent] =  []
 
 //var stored: Data = userDefaults.object(forKey: "stored") as? [SavedEvent] ?? []
+
+//TODO: I don't need a saved event...
+var saveItHere: [Event] =  []
