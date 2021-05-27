@@ -21,17 +21,16 @@ struct MainView: View {
     var body: some View {
         
         TabView {
-            
             //Search Tab
             VStack {
                 //Title
-                
                 Text("Fetch-a-🪑")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
-                
+                    .onAppear() {
+                        retrieveFaves()
+                    }
                 HStack {
-                    
                     //Custom Search Bar
                     TextField("Search events", text: $eventViewModel.searchText)
                         .onChange(of: eventViewModel.searchText) { newValue in
@@ -124,8 +123,11 @@ struct MainView: View {
                     .onAppear() {
                         if eventViewModel.isFirstStartUp {
                             print("hello developer")
+                            retrieveFaves()
+                            eventViewModel.loadSaved()
                         } else {
                             eventViewModel.loadIt()
+                            eventViewModel.loadSaved()
                             retrieveFaves()
                             print("saved favorites: \(savedFavorites)")
                         }
@@ -133,6 +135,9 @@ struct MainView: View {
                     }
                     .navigationTitle("")
                     .navigationBarHidden(true)
+                    .onAppear() {
+                        retrieveFaves()
+                    }
                 }
             }
             .tabItem {
@@ -144,7 +149,7 @@ struct MainView: View {
                 Text("Fetch-a-♥️")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
-                List(savedObjects, id: \.id) { event in
+                List(eventViewModel.savedEvents, id: \.id) { event in
                     
                     VStack {
                         
@@ -169,14 +174,19 @@ struct MainView: View {
                 }
                 .onAppear() {
                     print("saved favorites: \(savedFavorites)")
+                    retrieveFaves()
                 }
             }
             
             .tabItem {
                 Label("Favorites", systemImage: "bolt.heart.fill")
             }
+            .onAppear() {
+                retrieveFaves()
+            }
             
         }
+        
     }
     
     func retrieveFaves() {
@@ -188,7 +198,6 @@ struct MainView: View {
             }
         }
     }
-    
 }
 
 //Does not monitor state changes
